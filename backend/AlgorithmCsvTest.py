@@ -7,7 +7,7 @@ class AlgorithmCsvTest:
         print("\nTworzenie obiektu")
         obiekt=AlgorithmCsv()
         print("\nInicjalizacja jednowymairowej listy na podstawie pliku csv")
-        listaJednowymiarowa=obiekt.readCsv(r"C:\Users\micha\Desktop\SEMESTR 1\TO\TO projket\CSV_JSON_CONVERTER\backend\instance\uploads_files\przykladowa_csv.csv",',')
+        listaJednowymiarowa=obiekt.readCsv(r"C:\Users\micha\Desktop\SEMESTR 1\TO\TO projket\CSV_JSON_CONVERTER\backend\deniro.csv",'|')
         print("\nInicjalizacja dwuwymiarowej listy na podstawie jednowymiarowej oraz liczby kolumn")
         listaDwuwymiarowa=obiekt.OneToTwoDim(listaJednowymiarowa)
         print("\nWyswietlnie informacji o CSV")     
@@ -15,6 +15,6 @@ class AlgorithmCsvTest:
         print("\nWyswietlnie danych z pliku CSV") 
         obiekt.printCsv(listaDwuwymiarowa)
 
+        
 test=AlgorithmCsvTest()
 test.testCsv()
-
