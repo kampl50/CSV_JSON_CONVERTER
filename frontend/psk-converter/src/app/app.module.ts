@@ -21,6 +21,8 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UploadFileService } from './services/upload-file.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
+
 @NgModule({
   declarations: [AppComponent, ConverterMenuComponent],
   imports: [
@@ -38,8 +40,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     MatCheckboxModule,
     MatIconModule,
     MatCardModule,
-    NgxMatFileInputModule,
     HttpClientModule,
+    MaterialFileInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

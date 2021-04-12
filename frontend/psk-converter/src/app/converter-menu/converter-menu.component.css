@@ -1,13 +1,30 @@
-/* .wrapper {
-  max-width: 1400px;
-  height: 600px;
+.wrapper {
+  max-width: 1200px;
+  height: 400px;
   margin: 100px auto;
   border: lightslategrey solid 2px;
 }
 
 .col-sm {
   text-align: center;
-  line-height: 600px;
+  line-height: 400px;
+}
+
+.col-sm-3 {
+  position: relative;
+}
+
+.col-sm-3 button {
+  top: 25px;
+  left: 150px;
+  height: 45px;
+  background-color: #3f51b5;
+  color: white;
+}
+
+mat-form-field {
+  top: 20px;
+  left: 40px;
 }
 
 label {
@@ -18,4 +35,13 @@ label {
 input,
 label {
   margin: 0.4rem 0;
-} */
+}
+
+.p0 {
+  padding: 10px;
+}
+
+.download {
+  font: 15px "Fira Sans", sans-serif;
+  color: grey;
+}

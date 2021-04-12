@@ -1,44 +1,66 @@
 <div class="wrapper">
   <div class="row">
-    <div class="col-sm">
+    <div class="col-sm-3 p0">
       <mat-form-field class="select-model" appearance="fill">
         <mat-label>Formatuj z</mat-label>
         <mat-select>
-          <!-- <mat-option *ngFor="let food of foods" [value]="food.value">
-            {{ food.viewValue }}
-          </mat-option> -->
+          <mat-option *ngFor="let format of formats" [value]="format">
+            {{ format }}
+          </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
-    <div class="col-sm select-model">
-      <!-- <mat-form-field>
+
+    <div class="col-sm-3 select-model p0">
+      <mat-form-field
+        style="
+          position: relative;
+          background-color: rgb(245, 244, 244);
+          height: 50px;
+          top: 20px;
+          padding-top: 13px;
+        "
+      >
         <ngx-mat-file-input
-          [formControl]="fileControl"
-          [multiple]="multiple"
-          [accept]="accept"
-          [color]="color"
-        >
-        </ngx-mat-file-input>
-      </mat-form-field> -->
-      <div class="form-group">
-        <label for="file">Choose File</label>
-        <input type="file"
-               id="file"
-               (change)="handleFileInput($event.target.files)">
+          [placeholder]="'Wybierz plik'"
+          (change)="handleFileInput($event.target.files)"
+        ></ngx-mat-file-input>
+        <mat-icon matSuffix>folder</mat-icon>
+      </mat-form-field>
     </div>
-    >
->
-       <button mat-raised-button class="standard-button" (click)="uploadFile()">Upload file</button>
+
+    <div class="col-sm-3 select-model p0">
+      <button mat-raised-button class="standard-button" (click)="uploadFile()">
+        Konwertuj plik
+      </button>
     </div>
-    <div class="col-sm">
+
+    <div class="col-sm-3 p0">
       <mat-form-field class="select-model" appearance="fill">
         <mat-label>Formatuj do</mat-label>
         <mat-select>
-          <!-- <mat-option *ngFor="let food of foods" [value]="food.value">
-            {{ food.viewValue }}
-          </mat-option> -->
+          <mat-option *ngFor="let format of formats" [value]="format">
+            {{ format }}
+          </mat-option>
         </mat-select>
       </mat-form-field>
+    </div>
+  </div>
+  <div style="margin-top: 30px" class="row">
+    <div
+      style="
+        width: 800px;
+        height: 150px;
+        background-color: rgb(245, 244, 244);
+        left: 50px;
+      "
+      class="col-sm-11"
+    >
+      <span
+        style="position: relative; display: block; top: 10px"
+        class="download"
+        >Pliki do pobrania</span
+      >
     </div>
   </div>
 </div>
