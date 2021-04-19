@@ -14,7 +14,7 @@ Django/Flask mikro freamwork aplikacji webowych
 4)HARMONOGRAM PRAC
 MARZEC: Wykonanie interfejsu użytkownika(frontend)
 KWIECIEŃ: Integracja frontend'u z serwerem Pythonowym. Wstępnie konwertowanie formatów z użyciem gotowych bibliotek konwertujących 
-MAJ: Zaimplementowanie własnego algorytmu konwersji miedzy formatem CSV a JSON i JSON a CSV.
+MAJ: Zaimplementowanie własnego algorytmu konwersji miedzy formatem CSV a JSON i JSON a CSV oraz CSV a XML i XML a CSV.
 CZERWIEC: Naniesienie ostatnich poprawek na projekt. Wykonanie ewentualnych sugestii nałożonych przez prowadzącego. Obrona projektu.
 
 Funkcjonalności:
