@@ -3,7 +3,7 @@
     <div class="col-sm-3 p0">
       <mat-form-field class="select-model" appearance="fill">
         <mat-label>Formatuj z</mat-label>
-        <mat-select>
+        <mat-select (valueChange)="setListFormatsTo($event)">
           <mat-option *ngFor="let format of formats" [value]="format">
             {{ format }}
           </mat-option>
@@ -38,8 +38,11 @@
     <div class="col-sm-3 p0">
       <mat-form-field class="select-model" appearance="fill">
         <mat-label>Formatuj do</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let format of formats" [value]="format">
+        <mat-select (valueChange)="setFormatTo($event)">
+          <mat-option
+            *ngFor="let format of formatsWithoutSelected"
+            [value]="format"
+          >
             {{ format }}
           </mat-option>
         </mat-select>
