@@ -13,11 +13,11 @@ def tablicaZLini(tekst,separatory='<|>|/'):
     tekst=re.split(separatory, tekst)
     bez_spacji = []
     for string in tekst:
-        if (string != ""):
+        if (string != "" and string!='\t'):
             bez_spacji.append(string)
     return bez_spacji
         
-f = open("testowy.xml", "r")
+f = open("testowy2.xml", "r")
 element=''
 separator="."
 przedrostek=''
@@ -27,6 +27,7 @@ tablica=[]
 licznik=0
 nr_lini=0
 for linia in f:
+    linia = re.sub(r"[\t]*", "", linia)#usuwamy tabulatory z pliku xml
     if(licznik==0):
         licznik+=1
         continue
@@ -64,8 +65,9 @@ lista = [[jesli_brak for i in range(len(naglowki))]for j in range(nr_lini)]
 
 licznik=0
 nr_lini=0
-f = open("testowy.xml", "r")
+f = open("testowy2.xml", "r")
 for linia in f:
+    linia = re.sub(r"[\t]*", "", linia)#usuwamy tabulatory z pliku xml
     if(licznik==0):
         licznik+=1
         continue
