@@ -1,12 +1,13 @@
+from flask.helpers import send_file
+from Json2CsvTest import AlgorithmJson2CsvTest
 import errno
 import os
 
 from flask import Flask
 from flask import request
-from flask.helpers import send_file
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
-
+from flask import Response
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'csv', 'xml'}
 app = Flask(__name__)
 CORS(app)
@@ -29,20 +30,25 @@ def allowed_file(filename):
 def upload_file():
     print(request.files)
     if 'file' not in request.files:
-        print('no file in request')
+         print('no file in request')
     receivedFile = request.files['file']
     if receivedFile.filename == '':
         print('no selected file')
-    if receivedFile and allowed_file(receivedFile.filename):
-        receivedFile. \
+
+    print(receivedFile.filename)
+    receivedFile. \
             save(os.path.join(uploads_dir, secure_filename(receivedFile.filename)))
-        return "file was saved correctly"
-    print("end")
+    
+    
+    splicedFileName = receivedFile.filename.split(".")[0]
+
+    test=AlgorithmJson2CsvTest()
+    test.testJson2Csv('instance/uploads_files/' + receivedFile.filename,'instance/converted_files/' + splicedFileName + '.csv','|')
+    return Response(splicedFileName + '.csv')
 
 @app.route('/download')
 def download_file():
-	path = "converted\example.txt"
-
+	path = "instance/converted_files/" + request.args.get('filename')
 	return send_file(path, as_attachment=True)  
 
 

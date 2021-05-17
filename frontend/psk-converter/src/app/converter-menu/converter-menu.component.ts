@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConvertRequest } from '../model.interface';
 import { DownloadFileService } from '../services/download-file.service';
 import { saveAs } from 'file-saver';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-converter-menu',
@@ -11,6 +12,7 @@ import { saveAs } from 'file-saver';
 })
 export class ConverterMenuComponent implements OnInit {
   fileToUpload: File = null;
+  filenameToDownLoad = '';
 
   formatFrom: string;
   formatTo: string;
@@ -27,13 +29,18 @@ export class ConverterMenuComponent implements OnInit {
     this.fileToUpload = files.item(0);
   }
 
-  downloadFile(fileName) {
-    const EXT = fileName.substr(fileName.lastIndexOf('.') + 1);
+  downloadFile() {
+    const EXT = this.filenameToDownLoad.substr(
+      this.filenameToDownLoad.lastIndexOf('.') + 1
+    );
     this.downloadFileService
-      .downloadFile({ fileName: fileName })
+      .downloadFile({ fileName: this.filenameToDownLoad })
       .subscribe((data) => {
         //save it on the client machine.
-        saveAs(new Blob([data], { type: MIME_TYPES[EXT] }), fileName);
+        saveAs(
+          new Blob([data], { type: MIME_TYPES[EXT] }),
+          this.filenameToDownLoad
+        );
       });
   }
 
@@ -45,9 +52,12 @@ export class ConverterMenuComponent implements OnInit {
         to: this.formatTo,
       },
     };
-    this.uploadFileService.parseTable(convertRequest).subscribe((data: any) => {
-      console.log(data);
-    });
+    this.uploadFileService.parseTable(convertRequest).subscribe(
+      (result) => console.log(result, 'jestem result'),
+      (error) => {
+        this.filenameToDownLoad = error.error.text;
+      }
+    );
   }
 
   setListFormatsTo(value: string) {

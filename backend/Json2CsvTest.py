@@ -8,8 +8,8 @@ class AlgorithmJson2CsvTest:
         o.table2File(tablica,file_destination,sep)
 
 
-test=AlgorithmJson2CsvTest()
-test.testJson2Csv('jeszcze_bardziej_zagniezdozny_json.json','abc.csv','|')
+# test=AlgorithmJson2CsvTest()
+# test.testJson2Csv('jeszcze_bardziej_zagniezdozny_json.json','abc.csv','|')
 
 
 
