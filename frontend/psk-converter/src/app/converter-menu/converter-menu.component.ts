@@ -1,6 +1,8 @@
 import { UploadFileService } from './../services/upload-file.service';
 import { Component, OnInit } from '@angular/core';
 import { ConvertRequest } from '../model.interface';
+import { DownloadFileService } from '../services/download-file.service';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-converter-menu',
@@ -15,11 +17,24 @@ export class ConverterMenuComponent implements OnInit {
   formats: string[] = ['CSV', 'JSON', 'XML'];
   formatsWithoutSelected: string[] = new Array();
 
-  constructor(private uploadFileService: UploadFileService) {}
+  constructor(
+    private uploadFileService: UploadFileService,
+    private downloadFileService: DownloadFileService
+  ) {}
 
   ngOnInit(): void {}
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
+  }
+
+  downloadFile(fileName) {
+    const EXT = fileName.substr(fileName.lastIndexOf('.') + 1);
+    this.downloadFileService
+      .downloadFile({ fileName: fileName })
+      .subscribe((data) => {
+        //save it on the client machine.
+        saveAs(new Blob([data], { type: MIME_TYPES[EXT] }), fileName);
+      });
   }
 
   uploadFile() {
@@ -50,3 +65,9 @@ export class ConverterMenuComponent implements OnInit {
     this.formatTo = value;
   }
 }
+
+const MIME_TYPES = {
+  pdf: 'application/pdf',
+  xls: 'application/vnd.ms-excel',
+  xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetxml.sheet',
+};

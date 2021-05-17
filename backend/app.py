@@ -3,6 +3,7 @@ import os
 
 from flask import Flask
 from flask import request
+from flask.helpers import send_file
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
@@ -37,6 +38,12 @@ def upload_file():
             save(os.path.join(uploads_dir, secure_filename(receivedFile.filename)))
         return "file was saved correctly"
     print("end")
+
+@app.route('/download')
+def download_file():
+	path = "converted\example.txt"
+
+	return send_file(path, as_attachment=True)  
 
 
 if __name__ == '__main__':
