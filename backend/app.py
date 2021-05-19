@@ -29,6 +29,9 @@ def allowed_file(filename):
 @app.route('/parse', methods=['POST'])
 def upload_file():
     print(request.files)
+    print(request.args.get('from'))
+    print(request.args.get('to'))
+    print(request.args.get('separator'))
     if 'file' not in request.files:
          print('no file in request')
     receivedFile = request.files['file']

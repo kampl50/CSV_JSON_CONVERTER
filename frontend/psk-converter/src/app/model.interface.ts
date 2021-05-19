@@ -6,4 +6,5 @@ export interface ConvertRequest {
 export interface ConvertSettings {
   from: string;
   to: string;
+  separator: string;
 }

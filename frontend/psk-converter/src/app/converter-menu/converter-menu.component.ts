@@ -85,6 +85,7 @@ export class ConverterMenuComponent implements OnInit {
       settings: {
         from: this.formatFrom,
         to: this.formatTo,
+        separator: this.selectedSeparator,
       },
     };
     this.uploadFileService.parseTable(convertRequest).subscribe(
@@ -125,6 +126,10 @@ export class ConverterMenuComponent implements OnInit {
 
   setFormatTo(value: string) {
     this.formatTo = value;
+  }
+
+  setSeparator(value: string) {
+    this.selectedSeparator = value;
   }
 }
 

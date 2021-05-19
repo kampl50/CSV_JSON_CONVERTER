@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ConvertRequest } from '../model.interface';
 
@@ -15,6 +15,13 @@ export class UploadFileService {
     formData.append('file', converterRequest.file, converterRequest.file.name);
     // todo: add settings object to request
     // formData.append('settings', converterRequest.settings)
-    return this.httpClient.post(PYTHON_API_UPLOAD_FILE, formData);
+    let params = new HttpParams();
+    params = params.append('from', converterRequest.settings.from);
+    params = params.append('to', converterRequest.settings.to);
+    params = params.append('separator', converterRequest.settings.separator);
+    console.log(params);
+    return this.httpClient.post(PYTHON_API_UPLOAD_FILE, formData, {
+      params: params,
+    });
   }
 }
