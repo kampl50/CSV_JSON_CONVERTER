@@ -14,10 +14,17 @@ export class ConverterMenuComponent implements OnInit {
   fileToUpload: File = null;
   filenameToDownLoad = '';
 
-  formatFrom: string;
-  formatTo: string;
+  formatFrom: string = '';
+  formatTo: string = '';
   formats: string[] = ['CSV', 'JSON', 'XML'];
+  separators: string[] = ['.', ',', ';', '|', '\\t'];
+  selectedSeparator: string = null;
   formatsWithoutSelected: string[] = new Array();
+
+  isFailedFormat: boolean = false;
+  isFailedFromFormat: boolean = false;
+  isFailedToFormat: boolean = false;
+  isFailedFile: boolean = false;
 
   constructor(
     private uploadFileService: UploadFileService,
@@ -45,6 +52,34 @@ export class ConverterMenuComponent implements OnInit {
   }
 
   uploadFile() {
+    if (this.fileToUpload === null) {
+      this.isFailedFile = true;
+
+      setTimeout(() => (this.isFailedFile = false), 3000);
+      return;
+    }
+    const fileFormat = this.fileToUpload.name.split('.')[1].toUpperCase();
+    if (fileFormat !== this.formatFrom) {
+      this.isFailedFormat = true;
+
+      setTimeout(() => (this.isFailedFormat = false), 3000);
+      return;
+    }
+
+    if (this.formatFrom === '') {
+      this.isFailedFromFormat = true;
+
+      setTimeout(() => (this.isFailedFromFormat = false), 3000);
+      return;
+    }
+
+    if (this.formatTo === '') {
+      this.isFailedToFormat = true;
+
+      setTimeout(() => (this.isFailedToFormat = false), 3000);
+      return;
+    }
+
     let convertRequest: ConvertRequest = {
       file: this.fileToUpload,
       settings: {
@@ -62,13 +97,30 @@ export class ConverterMenuComponent implements OnInit {
 
   setListFormatsTo(value: string) {
     let newArray = [...this.formats];
-    const index = newArray.indexOf(value);
 
-    if (index > -1) {
-      newArray.splice(index, 1);
-    }
+    newArray = this.filterAccesFormatters(value, newArray);
     this.formatsWithoutSelected = newArray;
     this.formatFrom = value;
+    this.formatTo = '';
+  }
+
+  private filterAccesFormatters(
+    value: string,
+    formatters: Array<string>
+  ): Array<string> {
+    let index = formatters.indexOf(value);
+    if (index > -1) {
+      formatters.splice(index, 1);
+    }
+    if (value === 'JSON') {
+      index = formatters.indexOf('XML');
+      formatters.splice(index, 1);
+    }
+    if (value === 'XML') {
+      index = formatters.indexOf('JSON');
+      formatters.splice(index, 1);
+    }
+    return formatters;
   }
 
   setFormatTo(value: string) {

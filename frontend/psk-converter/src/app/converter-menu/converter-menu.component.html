@@ -9,6 +9,19 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+      <!-- SEPARATOREY -->
+      <mat-form-field
+        *ngIf="formatFrom === 'CSV'"
+        class="select-model"
+        appearance="fill"
+      >
+        <mat-label>Wybierz separator</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let separator of separators" [value]="separator">
+            {{ separator }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 
     <div class="col-sm-3 select-model p0">
@@ -34,7 +47,6 @@
         Konwertuj plik
       </button>
     </div>
-
     <div class="col-sm-3 p0">
       <mat-form-field class="select-model" appearance="fill">
         <mat-label>Formatuj do</mat-label>
@@ -44,6 +56,19 @@
             [value]="format"
           >
             {{ format }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- SEPARATORY -->
+      <mat-form-field
+        *ngIf="formatTo === 'CSV'"
+        class="select-model"
+        appearance="fill"
+      >
+        <mat-label>Wybierz format</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let separator of separators" [value]="separator">
+            {{ separator }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -103,7 +128,38 @@
       >
         Pobierz plik
       </button>
+      <div
+        style="width: 200px; margin-top: 20px"
+        *ngIf="isFailedFormat"
+        class="alert alert-danger"
+        role="alert"
       >
+        Niezgodny format pliku!
+      </div>
+      <div
+        style="width: 200px; margin-top: 20px"
+        *ngIf="isFailedToFormat"
+        class="alert alert-danger"
+        role="alert"
+      >
+        Format docelowy jest niewybrany!
+      </div>
+      <div
+        style="width: 200px; margin-top: 20px"
+        *ngIf="isFailedFromFormat"
+        class="alert alert-danger"
+        role="alert"
+      >
+        Format początkowy jest niewybrany!
+      </div>
+      <div
+        style="width: 200px; margin-top: 20px"
+        *ngIf="isFailedFile"
+        class="alert alert-danger"
+        role="alert"
+      >
+        Plik nie został wybrany!
+      </div>
     </div>
   </div>
 </div>
