@@ -1,6 +1,7 @@
+from AlgorithmConfig import AlgorithmConfig
 import re
 
-class AlgorithmXML():     
+class AlgorithmXML(AlgorithmConfig):     
     ## Konstruktor
     def __init__(self):
         self.csvFile=None
@@ -57,10 +58,10 @@ class AlgorithmXML():
                     koncowy_element.remove(var[0])
                     continue
                 koncowy_element.append(var[0])
-                przedrostek+=self.separatorNaglowkow+var[0]
+                przedrostek+=self.configSeparatorKolumn+var[0]
             if(len(var)==4):
                 dl=len(var[0])
-                przedrostek+=self.separatorNaglowkow+var[0]
+                przedrostek+=self.configSeparatorKolumn+var[0]
                 if przedrostek not in naglowki:
                     naglowki.append(przedrostek)
                 przedrostek=przedrostek[:-dl-1]
@@ -70,8 +71,7 @@ class AlgorithmXML():
 
     def convertXML2CSV(self,filenameXML,fileNameCSV,separator):
         koncowy_element,naglowki,nr_lini=self.wyznaczNaglowki(filenameXML)
-        jesli_brak="-"
-        lista = [[jesli_brak for i in range(len(naglowki))]for j in range(nr_lini)]
+        lista = [[self.configJesli_brak for i in range(len(naglowki))]for j in range(nr_lini)]
         licznik=0
         nr_lini=0
         f = open(filenameXML, "r")
@@ -99,11 +99,11 @@ class AlgorithmXML():
                     koncowy_element.remove(var[0])
                     continue
                 koncowy_element.append(var[0])
-                przedrostek+=self.separatorNaglowkow+var[0]
+                przedrostek+=self.configSeparatorKolumn+var[0]
             if(len(var)==4):
                 dl=len(var[0])
                 obiket=var[2]
-                przedrostek+=self.separatorNaglowkow+var[0]
+                przedrostek+=self.configSeparatorKolumn+var[0]
                 par2=naglowki.index(przedrostek)
                 lista[nr_lini][par2]=var[1]
                 przedrostek=przedrostek[:-dl-1]

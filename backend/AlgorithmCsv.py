@@ -1,7 +1,8 @@
+from AlgorithmConfig import AlgorithmConfig
 import re
 import os
 
-class AlgorithmCsv():     
+class AlgorithmCsv(AlgorithmConfig):     
     ## Konstruktor
     def __init__(self):
         self.csvFile=None
@@ -60,13 +61,13 @@ class AlgorithmCsv():
             print()
 
 
-    def tablicaZLini(self,tekst,separator='.'):
-        tekst=re.split(separator, tekst)
-        bez_spacji = []
-        for string in tekst:
-            if (string != "" and string!='\t'):
-                bez_spacji.append(string)
-        return bez_spacji
+    # def tablicaZLini(self,tekst,separator='.'):
+    #     tekst=re.split(separator, tekst)
+    #     bez_spacji = []
+    #     for string in tekst:
+    #         if (string != "" and string!='\t'):
+    #             bez_spacji.append(string)
+    #     return bez_spacji
 
     def diffOfList(self,list_1,list_2):
         for self.elementDoXML in list_1:
@@ -93,7 +94,7 @@ class AlgorithmCsv():
         for linia in f:
             if(liczba_wierszy==-1):
                 naglowki=linia.split(separator)
-                element=linia.split(separator)[0].split(".")[0]
+                element=linia.split(separator)[0].split(self.configSeparatorKolumn)[0]
             liczba_wierszy+=1
         liczba_kolumn=len(naglowki)
         f.close()
@@ -118,8 +119,8 @@ class AlgorithmCsv():
             ile_tab+=1
             zapamietane_naglowki=[element]
             for j in range(liczba_kolumn):
-                if(listaDwuwymiarowa[aktualny_wiersz][j]!="-"):
-                    aktualny_naglowek=naglowki[j].split(".")
+                if(listaDwuwymiarowa[aktualny_wiersz][j]!=self.configJesli_brak):
+                    aktualny_naglowek=naglowki[j].split(self.configSeparatorKolumn)
                     
                     k=self.doKtoregoMiejscaZgodnosc(zapamietane_naglowki,aktualny_naglowek)
                     if(k<len(zapamietane_naglowki)):
@@ -204,8 +205,8 @@ class AlgorithmCsv():
             ile_tab+=1
             zapamietane_naglowki=[]
             for j in range(liczba_kolumn):
-                if(listaDwuwymiarowa[aktualny_wiersz][j]!="-"):
-                    aktualny_naglowek=naglowki[j].split(".")
+                if(listaDwuwymiarowa[aktualny_wiersz][j]!=self.configJesli_brak):
+                    aktualny_naglowek=naglowki[j].split(self.configSeparatorKolumn)
                     
                     k=self.doKtoregoMiejscaZgodnosc(zapamietane_naglowki,aktualny_naglowek)#zamykanie zagniezdzen
                     if(k<len(zapamietane_naglowki)):
@@ -255,4 +256,4 @@ class AlgorithmCsv():
         self.dodajPrzecinki(filenameJSON)
 
 o = AlgorithmCsv()
-o.convertCSV2JSON("przykladowy_plik_csv_J.csv","jjson.json","|")
+o.convertCSV2XML("przykladowy_plik_csv_X.csv","gergre.xml","|")

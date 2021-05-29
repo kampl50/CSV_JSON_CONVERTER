@@ -1,7 +1,8 @@
+from AlgorithmConfig import AlgorithmConfig
 import copy
 import json
 
-class AlgorithmJson():     
+class AlgorithmJson(AlgorithmConfig):     
     ## Konstruktor
     def __init__(self):
         pass
@@ -31,7 +32,7 @@ class AlgorithmJson():
         f.write("]\n")
         f.close()
 
-    def rozgniezdzenie(self,ds,prefix= "",sep=".",poziom= 0):
+    def rozgniezdzenie(self,ds,prefix= "",poziom= 0):
         flaga = False#flaga czy jestesmy w rekurencji
         if isinstance(ds, dict):#jesli ds jest słownikiem
             ds = [ds]#zamien slownik na liste
@@ -46,7 +47,7 @@ class AlgorithmJson():
                 if poziom == 0:#jesli poziom to zero
                     nowyKlucz = k#to do nowego klucza przypisz aktualne k
                 else:
-                    nowyKlucz = prefix + sep + k
+                    nowyKlucz = prefix + self.configSeparatorKolumn + k
                 if not isinstance(v, dict):#jesli v nie jest słownikiem
                     if poziom != 0: #jeśli poziom nie jest zerem
                         v = new_d.pop(k)# z new_d pobierz wartosc o kluczu k i ją przypisz do v
@@ -54,7 +55,7 @@ class AlgorithmJson():
                     continue # nowa petla for k, v in d.items():
                 else:#jesli v jest slownikiem
                     v = new_d.pop(k)#przypisz do v nowy słownik z pod klucza k
-                    new_d.update(self.rozgniezdzenie(v, nowyKlucz, sep, poziom + 1))#zaaktualizuj v , jako prefix nasz klucz, sep jako sep, i o jeden wyzszy poziom
+                    new_d.update(self.rozgniezdzenie(v, nowyKlucz, poziom + 1))#zaaktualizuj v , jako prefix nasz klucz, i o jeden wyzszy poziom
             new_ds.append(new_d)#dodaj wuniki do ostatecznej listy
         if flaga:#jesli flaga jest ustawiona
             return new_ds[0] #rekurencja , wróc do wywołania czyli do update
@@ -73,8 +74,7 @@ class AlgorithmJson():
         unikalne_klucze = list( dict.fromkeys(klucze) )
         liczba_wierszy=len(lista_slownikow)
         liczba_kolumn=len(unikalne_klucze)
-        jesli_brak="-"
-        pusta_tablica = [[jesli_brak for i in range(liczba_kolumn)] for i in range(liczba_wierszy)]
+        pusta_tablica = [[self.configJesli_brak for i in range(liczba_kolumn)] for i in range(liczba_wierszy)]
         tablica=[unikalne_klucze]+pusta_tablica
         for i in range(liczba_wierszy):
             for j in range(liczba_kolumn):
