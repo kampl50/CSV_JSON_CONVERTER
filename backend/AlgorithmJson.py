@@ -6,6 +6,7 @@ class AlgorithmJson():
     def __init__(self):
         pass
 
+        #do usuniecia, jest to zwykla zamiana csv na json
     def fromCsv2Json(self,listaDwuwymiarowa,fileName):
         rowNumber=len(listaDwuwymiarowa)
         columnNumber=len(listaDwuwymiarowa[0])
@@ -72,7 +73,7 @@ class AlgorithmJson():
         unikalne_klucze = list( dict.fromkeys(klucze) )
         liczba_wierszy=len(lista_slownikow)
         liczba_kolumn=len(unikalne_klucze)
-        jesli_brak=""
+        jesli_brak="-"
         pusta_tablica = [[jesli_brak for i in range(liczba_kolumn)] for i in range(liczba_wierszy)]
         tablica=[unikalne_klucze]+pusta_tablica
         for i in range(liczba_wierszy):
@@ -86,6 +87,15 @@ class AlgorithmJson():
         for i in range(len(tab)):
             for j in range(len(tab[0])):
                 f.write(str(tab[i][j]))
-                f.write(sep)
+                if(j!=len(tab[0])-1):
+                    f.write(sep)
             f.write('\n')
+
+    def convertJSON2CSV(self,filenameJSON,fileNameCSV,separator):
+        slownik=self.loading_file(filenameJSON)
+        lista_slownikow=self.rozgniezdzenie(slownik)
+        tablica=self.dict2Table(lista_slownikow)
+        self.table2File(tablica,fileNameCSV,separator)
     
+# o =AlgorithmJson()
+# o.convertJSON2CSV("jeszcze_bardziej_zagniezdozny_json.json","tojestjakichcepliczekcsvvvvv.csv","\t")
