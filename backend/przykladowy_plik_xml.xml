@@ -1,0 +1,43 @@
+<root>
+	<element>
+		<imie>Michal Zawadzki</imie>
+		<student>true</student>
+		<waga>78.5</waga>
+		<adres>
+			<glebszeZagniezdzenie>
+				<klucz1>wartosc1</klucz1>
+				<klucz2>
+					<k1>v1</k1>
+					<k2>v2</k2>
+				</klucz2>
+			</glebszeZagniezdzenie>
+			<kod>1000</kod>
+			<kraj>polska</kraj>
+			<miasto>warszawa</miasto>
+			<ulica>aleje jerzolimskie</ulica>
+		</adres>
+	</element>
+	<element>
+		<adres>
+			<kod>11122</kod>
+			<kraj>USA</kraj>
+			<miasto>Nowy Jork</miasto>
+			<ulica>broadway</ulica>
+		</adres>
+		<imie>Kamil Sitek</imie>
+		<student>false</student>
+		<waga>86.4</waga>
+		<wzrost>183.7</wzrost>
+	</element>
+	<element>
+		<adres>
+			<kraj>Niemcy</kraj>
+			<miasto>Berlin</miasto>
+			<ulica>bank strabe</ulica>
+		</adres>
+		<imie>Jan Kowalski</imie>
+		<student>false</student>
+		<waga>90</waga>
+		<wzrost>160</wzrost>
+	</element>
+</root>

@@ -254,5 +254,5 @@ class AlgorithmCsv():
         fjson.close()
         self.dodajPrzecinki(filenameJSON)
 
-# o = AlgorithmCsv()
-# o.convertCSV2XML("csvalkaZXmla.csv","mojnowyplikxml.xml","|")
+o = AlgorithmCsv()
+o.convertCSV2JSON("przykladowy_plik_csv_J.csv","jjson.json","|")

@@ -74,7 +74,7 @@ class AlgorithmXML():
         lista = [[jesli_brak for i in range(len(naglowki))]for j in range(nr_lini)]
         licznik=0
         nr_lini=0
-        f = open("testowy2.xml", "r")
+        f = open(filenameXML, "r")
         for linia in f:
             linia = re.sub(r"[\t]*", "", linia)#usuwamy tabulatory z pliku xml
             if(licznik==0):
@@ -112,5 +112,5 @@ class AlgorithmXML():
         naglowki=[naglowki]+lista
         self.table2File(naglowki,fileNameCSV,separator)
 
-# o=AlgorithmXML()
-# o.convertXML2CSV("testowy2.xml","tojestnowacsvalka.csv","|")
+o=AlgorithmXML()
+o.convertXML2CSV("przykladowy_plik_xml.xml","przykladowy_plik_csv_X.csv","|")
