@@ -1,8 +1,10 @@
 from flask.helpers import send_file
-from Json2CsvTest import AlgorithmJson2CsvTest
+from AlgorithmJson import AlgorithmJson
+from AlgorithmCsv import AlgorithmCsv
+from AlgorithmXML import AlgorithmXML
 import errno
 import os
-
+import shutil
 from flask import Flask
 from flask import request
 from flask_cors import CORS
@@ -13,12 +15,20 @@ app = Flask(__name__)
 CORS(app)
 
 uploads_dir = os.path.join(app.instance_path, 'uploads_files')
-
+converted_dir = os.path.join(app.instance_path, 'converted_files')
 try:
     os.makedirs(uploads_dir)
-except OSError as e:
-    if e.errno != errno.EEXIST:
+except OSError as exc:
+    if exc.errno != errno.EEXIST:
         raise
+    pass
+
+try:
+    os.makedirs(converted_dir)
+except OSError as exc:
+    if exc.errno != errno.EEXIST:
+        raise
+    pass
 
 
 def allowed_file(filename):
@@ -28,26 +38,37 @@ def allowed_file(filename):
 
 @app.route('/parse', methods=['POST'])
 def upload_file():
-    print(request.files)
-    print(request.args.get('from'))
-    print(request.args.get('to'))
-    print(request.args.get('separator'))
+    # shutil.rmtree('instance/uploads_files/')
+    # shutil.rmtree('instance/converted_files/')
+    
+    # os.makedirs(uploads_dir)
+    # os.makedirs(converted_dir)
+  
+    
     if 'file' not in request.files:
          print('no file in request')
     receivedFile = request.files['file']
     if receivedFile.filename == '':
         print('no selected file')
 
-    print(receivedFile.filename)
     receivedFile. \
             save(os.path.join(uploads_dir, secure_filename(receivedFile.filename)))
-    
-    
     splicedFileName = receivedFile.filename.split(".")[0]
 
-    test=AlgorithmJson2CsvTest()
-    test.testJson2Csv('instance/uploads_files/' + receivedFile.filename,'instance/converted_files/' + splicedFileName + '.csv','|')
-    return Response(splicedFileName + '.csv')
+    if request.args.get('from') == 'CSV' and request.args.get('to') == 'JSON':
+        test = AlgorithmCsv()
+        test.convertCSV2JSON('instance/uploads_files/' + receivedFile.filename,'instance/converted_files/' + splicedFileName + '.' + request.args.get('to').lower(),request.args.get('separator'))
+    if request.args.get('from') == 'CSV' and request.args.get('to') == 'XML':
+        test = AlgorithmCsv()
+        test.convertCSV2XML('instance/uploads_files/' + receivedFile.filename,'instance/converted_files/' + splicedFileName + '.' + request.args.get('to').lower(),request.args.get('separator'))
+    if request.args.get('from') == 'JSON' and request.args.get('to') == 'CSV':
+        test=AlgorithmJson()
+        test.convertJSON2CSV('instance/uploads_files/' + receivedFile.filename,'instance/converted_files/' + splicedFileName + '.' + request.args.get('to').lower(),'|')
+    if request.args.get('from') == 'XML' and request.args.get('to') == 'CSV':
+        test = AlgorithmXML()
+        test.convertXML2CSV('instance/uploads_files/' + receivedFile.filename,'instance/converted_files/' + splicedFileName + '.' + request.args.get('to').lower(),request.args.get('separator'))
+
+    return Response(splicedFileName + '.' + request.args.get('to').lower())
 
 @app.route('/download')
 def download_file():

@@ -97,5 +97,3 @@ class AlgorithmJson(AlgorithmConfig):
         tablica=self.dict2Table(lista_slownikow)
         self.table2File(tablica,fileNameCSV,separator)
     
-o =AlgorithmJson()
-o.convertJSON2CSV("przykladowy_plik_json.json","przykladowy_plik_csv_J.csv","|")

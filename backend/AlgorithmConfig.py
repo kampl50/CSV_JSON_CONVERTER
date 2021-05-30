@@ -3,5 +3,5 @@ class AlgorithmConfig():
     def __init__(self):
         pass
 
-    configJesli_brak="brak"
-    configSeparatorKolumn="]"
+    configJesli_brak="-"
+    configSeparatorKolumn="_"

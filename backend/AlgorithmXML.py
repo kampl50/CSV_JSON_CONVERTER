@@ -111,6 +111,3 @@ class AlgorithmXML(AlgorithmConfig):
         f.close()
         naglowki=[naglowki]+lista
         self.table2File(naglowki,fileNameCSV,separator)
-
-o=AlgorithmXML()
-o.convertXML2CSV("przykladowy_plik_xml.xml","przykladowy_plik_csv_X.csv","|")

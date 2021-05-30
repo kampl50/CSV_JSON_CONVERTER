@@ -255,5 +255,3 @@ class AlgorithmCsv(AlgorithmConfig):
         fjson.close()
         self.dodajPrzecinki(filenameJSON)
 
-o = AlgorithmCsv()
-o.convertCSV2XML("przykladowy_plik_csv_X.csv","gergre.xml","|")
