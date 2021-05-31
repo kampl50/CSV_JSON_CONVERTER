@@ -1,0 +1,53 @@
+[
+	{
+		"imie":"Michal Zawadzki",
+		"student":"True",
+		"wzrost1":"180",
+		"wzrost2":"180",
+		"wzrost3":"180",
+		"wzrost4":"180",
+		"waga":"78.5",
+		"adres]ulica":"aleje jerzolimskie",
+		"adres]miasto":"warszawa",
+		"adres]kraj":"polska",
+		"adres]kod":"1000",
+		"adres]glebszeZagniezdzenie]klucz1":"wartosc1",
+		"adres]glebszeZagniezdzenie]klucz2]k1":"v1",
+		"adres]glebszeZagniezdzenie]klucz2]k2":"v2",
+		"wzrost":"brak"
+	},
+	{
+		"imie":"Adrian Polski",
+		"student":"False",
+		"wzrost1":"brak",
+		"wzrost2":"brak",
+		"wzrost3":"brak",
+		"wzrost4":"brak",
+		"waga":"86.4",
+		"adres]ulica":"broadway",
+		"adres]miasto":"Nowy Jork",
+		"adres]kraj":"USA",
+		"adres]kod":"11122",
+		"adres]glebszeZagniezdzenie]klucz1":"brak",
+		"adres]glebszeZagniezdzenie]klucz2]k1":"brak",
+		"adres]glebszeZagniezdzenie]klucz2]k2":"brak",
+		"wzrost":"183.7"
+	},
+	{
+		"imie":"Jan Kowalski",
+		"student":"False",
+		"wzrost1":"brak",
+		"wzrost2":"brak",
+		"wzrost3":"brak",
+		"wzrost4":"brak",
+		"waga":"90",
+		"adres]ulica":"bank strabe",
+		"adres]miasto":"Berlin",
+		"adres]kraj":"Niemcy",
+		"adres]kod":"brak",
+		"adres]glebszeZagniezdzenie]klucz1":"brak",
+		"adres]glebszeZagniezdzenie]klucz2]k1":"brak",
+		"adres]glebszeZagniezdzenie]klucz2]k2":"brak",
+		"wzrost":"160"
+	}
+]
