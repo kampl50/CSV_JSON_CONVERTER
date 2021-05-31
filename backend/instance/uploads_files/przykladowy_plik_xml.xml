@@ -18,26 +18,26 @@
 		</adres>
 	</element>
 	<element>
-		<imie>Kamil Sitek</imie>
-		<student>false</student>
-		<waga>86.4</waga>
 		<adres>
 			<kod>11122</kod>
 			<kraj>USA</kraj>
 			<miasto>Nowy Jork</miasto>
 			<ulica>broadway</ulica>
 		</adres>
+		<imie>Kamil Sitek</imie>
+		<student>false</student>
+		<waga>86.4</waga>
 		<wzrost>183.7</wzrost>
 	</element>
 	<element>
-		<imie>Jan Kowalski</imie>
-		<student>false</student>
-		<waga>90</waga>
 		<adres>
 			<kraj>Niemcy</kraj>
 			<miasto>Berlin</miasto>
 			<ulica>bank strabe</ulica>
 		</adres>
+		<imie>Jan Kowalski</imie>
+		<student>false</student>
+		<waga>90</waga>
 		<wzrost>160</wzrost>
 	</element>
 </root>

@@ -4,4 +4,4 @@ class AlgorithmConfig():
         pass
 
     configJesli_brak="-"
-    configSeparatorKolumn="_"
+    configSeparatorKolumn="."
