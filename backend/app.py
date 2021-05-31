@@ -35,7 +35,8 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-
+odebrany_plik=''
+wysylany_plik=''
 @app.route('/parse', methods=['POST'])
 def upload_file():
     # shutil.rmtree('instance/uploads_files/')
@@ -63,17 +64,29 @@ def upload_file():
         test.convertCSV2XML('instance/uploads_files/' + receivedFile.filename,'instance/converted_files/' + splicedFileName + '.' + request.args.get('to').lower(),request.args.get('separator'))
     if request.args.get('from') == 'JSON' and request.args.get('to') == 'CSV':
         test=AlgorithmJson()
-        test.convertJSON2CSV('instance/uploads_files/' + receivedFile.filename,'instance/converted_files/' + splicedFileName + '.' + request.args.get('to').lower(),'|')
+        test.convertJSON2CSV('instance/uploads_files/' + receivedFile.filename,'instance/converted_files/' + splicedFileName + '.' + request.args.get('to').lower(),request.args.get('separator'))
     if request.args.get('from') == 'XML' and request.args.get('to') == 'CSV':
         test = AlgorithmXML()
         test.convertXML2CSV('instance/uploads_files/' + receivedFile.filename,'instance/converted_files/' + splicedFileName + '.' + request.args.get('to').lower(),request.args.get('separator'))
 
+    odebrany_plik='instance/uploads_files/' + receivedFile.filename
+    wysylany_plik='instance/converted_files/' + splicedFileName + '.' + request.args.get('to').lower()
     return Response(splicedFileName + '.' + request.args.get('to').lower())
 
 @app.route('/download')
 def download_file():
 	path = "instance/converted_files/" + request.args.get('filename')
 	return send_file(path, as_attachment=True)  
+
+try:
+    os.remove(odebrany_plik)
+except:
+    print("Nie ma pliku do usuniecia o ścieżkece", odebrany_plik)
+
+try:
+    os.remove(wysylany_plik)
+except:
+    print("Nie ma pliku do usuniecia o ścieżkece", odebrany_plik)
 
 
 if __name__ == '__main__':

@@ -168,7 +168,13 @@ class AlgorithmCsv(AlgorithmConfig):
 
     def dodajPrzecinki(self,filenameJSON):
         lista=[]
-        fjson=open("przecinek"+filenameJSON,"r")
+
+        splicedFileName = filenameJSON.split(".")[0]
+
+
+
+        #fjson=open("przecinek"+filenameJSON,"r")
+        fjson=open(splicedFileName+"tymczasowy.json","r")
 
         lista=[]
         for linia in fjson:
@@ -177,7 +183,8 @@ class AlgorithmCsv(AlgorithmConfig):
 
         licznik=0
         with open(filenameJSON, 'w') as out_file:
-            with open("przecinek"+filenameJSON, 'r') as in_file:
+            #with open("przecinek"+filenameJSON, 'r') as in_file:
+            with open(splicedFileName+"tymczasowy.json") as in_file:
                 for line in in_file:
                     if(licznik<len(lista)-1):
                         if(lista[licznik]==lista[licznik+1]):
@@ -187,7 +194,8 @@ class AlgorithmCsv(AlgorithmConfig):
                     else:
                         out_file.write(line)
                     licznik+=1
-        os.remove("przecinek"+filenameJSON)
+        #os.remove("przecinek"+filenameJSON)
+        os.remove(splicedFileName+"tymczasowy.json")
 
 
 
@@ -196,7 +204,10 @@ class AlgorithmCsv(AlgorithmConfig):
         listaJednowymiarowa=self.readCsv(filenameCSV,separator)
         listaDwuwymiarowa=self.OneToTwoDim(listaJednowymiarowa)
         ile_tab=0
-        fjson=open("przecinek"+filenameJSON,"w")
+        splicedFileName = filenameJSON.split(".")[0]
+
+        fjson=open(splicedFileName+"tymczasowy.json","w")
+        #fjson=open("przecinek"+filenameJSON,"w")
         fjson.write("[\n")
         ile_tab+=1
         for i in range(liczba_wierszy):
