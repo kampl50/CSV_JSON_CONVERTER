@@ -88,36 +88,38 @@ class AlgorithmCsv(AlgorithmConfig):
 
     def readCSVWithDot(self,filenameCSV,separator):
         f = open(filenameCSV, "r")
-        element=''
+        #element=''
         liczba_wierszy=-1#-1 bo pierwszy wiersz to naglowek ktorego nie liczmy
         liczba_kolumn=0
         for linia in f:
             if(liczba_wierszy==-1):
                 naglowki=linia.split(separator)
-                element=linia.split(separator)[0].split(self.configSeparatorKolumn)[0]
+                #element=linia.split(separator)[0].split(self.configSeparatorKolumn)[0]
             liczba_wierszy+=1
         liczba_kolumn=len(naglowki)
         f.close()
-        return element, liczba_wierszy,liczba_kolumn,naglowki
+        return  liczba_wierszy,liczba_kolumn,naglowki
 
 
 
 
     def convertCSV2XML(self,filenameCSV,filenameXML,separator):
-
-        element, liczba_wierszy,liczba_kolumn,naglowki = self.readCSVWithDot(filenameCSV,separator)
+        element="obiekt"
+        liczba_wierszy,liczba_kolumn,naglowki = self.readCSVWithDot(filenameCSV,separator)
         listaJednowymiarowa=self.readCsv(filenameCSV,separator)
         listaDwuwymiarowa=self.OneToTwoDim(listaJednowymiarowa)
 
         ile_tab=0
         fxml=open(filenameXML,"w")
         fxml.write("<root>\n")
+        print("<root>\n")
         ile_tab+=1
         for i in range(liczba_wierszy):
             aktualny_wiersz=i+1
             fxml.write(ile_tab*"\t"+"<"+element+">\n")
+            print(ile_tab*"\t"+"<"+element+">\n")
             ile_tab+=1
-            zapamietane_naglowki=[element]
+            zapamietane_naglowki=[]
             for j in range(liczba_kolumn):
                 if(listaDwuwymiarowa[aktualny_wiersz][j]!=self.configJesli_brak):
                     aktualny_naglowek=naglowki[j].split(self.configSeparatorKolumn)
@@ -126,6 +128,7 @@ class AlgorithmCsv(AlgorithmConfig):
                     if(k<len(zapamietane_naglowki)):
                         for l in range(len(zapamietane_naglowki)-k):
                             ile_tab-=1
+                            print(ile_tab*"\t"+"</"+str(zapamietane_naglowki[-1].split("\n")[0])+">\n")
                             fxml.write(ile_tab*"\t"+"</"+str(zapamietane_naglowki[-1].split("\n")[0])+">\n")
                             
                             zapamietane_naglowki.remove(zapamietane_naglowki[-1])
@@ -137,6 +140,7 @@ class AlgorithmCsv(AlgorithmConfig):
                     
                     if(len(aktualny_naglowek)==1):
                         fxml.write(ile_tab*"\t"+"<"+str(aktualny_naglowek[0].split("\n")[0])+">"+listaDwuwymiarowa[aktualny_wiersz][j]+"</"+str(aktualny_naglowek[0].split("\n")[0])+">\n")
+                        print(ile_tab*"\t"+"<"+str(aktualny_naglowek[0].split("\n")[0])+">"+listaDwuwymiarowa[aktualny_wiersz][j]+"</"+str(aktualny_naglowek[0].split("\n")[0])+">\n")
                     else:
 
                         k=self.doKtoregoMiejscaZgodnosc(zapamietane_naglowki,aktualny_naglowek)
@@ -144,26 +148,34 @@ class AlgorithmCsv(AlgorithmConfig):
                             for l in range(len(zapamietane_naglowki)-k):
                                 ile_tab-=1
                                 fxml.write(ile_tab*"\t"+"</"+str(zapamietane_naglowki[-1].split("\n")[0])+">\n")
+                                print(ile_tab*"\t"+"</"+str(zapamietane_naglowki[-1].split("\n")[0])+">\n")
                                 
                                 zapamietane_naglowki.remove(zapamietane_naglowki[-1])
                         
                         
                         
                         while(len(aktualny_naglowek)>1):
+                            print(ile_tab*"\t"+"<"+str(aktualny_naglowek[0].split("\n")[0])+">\n")
                             fxml.write(ile_tab*"\t"+"<"+str(aktualny_naglowek[0].split("\n")[0])+">\n")
                             ile_tab+=1
                             zapamietane_naglowki.append(aktualny_naglowek[0])
                             aktualny_naglowek.remove(aktualny_naglowek[0])
+                        print(ile_tab*"\t"+"<"+str(aktualny_naglowek[0].split("\n")[0])+">"+listaDwuwymiarowa[aktualny_wiersz][j]+"</"+str(aktualny_naglowek[0].split("\n")[0])+">\n")
                         fxml.write(ile_tab*"\t"+"<"+str(aktualny_naglowek[0].split("\n")[0])+">"+listaDwuwymiarowa[aktualny_wiersz][j]+"</"+str(aktualny_naglowek[0].split("\n")[0])+">\n")
 
             
             for m in range(len(zapamietane_naglowki)):
                 ile_tab-=1
+                print(ile_tab*"\t"+"</"+str(zapamietane_naglowki[-1].split("\n")[0])+">\n")
                 fxml.write(ile_tab*"\t"+"</"+str(zapamietane_naglowki[-1].split("\n")[0])+">\n")
                 zapamietane_naglowki.remove(zapamietane_naglowki[-1])
-                        
-
+                
+            ile_tab-=1             
+            print(ile_tab*"\t"+"</"+element+">\n")
+            fxml.write(ile_tab*"\t"+"</"+element+">\n")
+        ile_tab-=1
         fxml.write("</root>\n")
+        print("</root>\n")
         fxml.close()
 
     def dodajPrzecinki(self,filenameJSON):
@@ -200,7 +212,8 @@ class AlgorithmCsv(AlgorithmConfig):
 
 
     def convertCSV2JSON(self,filenameCSV,filenameJSON,separator):
-        element, liczba_wierszy,liczba_kolumn,naglowki = self.readCSVWithDot(filenameCSV,separator)
+        #element, liczba_wierszy,liczba_kolumn,naglowki = self.readCSVWithDot(filenameCSV,separator)
+        liczba_wierszy,liczba_kolumn,naglowki = self.readCSVWithDot(filenameCSV,separator)
         listaJednowymiarowa=self.readCsv(filenameCSV,separator)
         listaDwuwymiarowa=self.OneToTwoDim(listaJednowymiarowa)
         ile_tab=0
@@ -266,3 +279,6 @@ class AlgorithmCsv(AlgorithmConfig):
         fjson.close()
         self.dodajPrzecinki(filenameJSON)
 
+
+o=AlgorithmCsv()
+o.convertCSV2XML(r"C:\Users\micha\Desktop\zam.csv",r"C:\Users\micha\Desktop\abcd.xml",";")
