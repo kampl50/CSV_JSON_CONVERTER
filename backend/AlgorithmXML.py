@@ -41,7 +41,7 @@ class AlgorithmXML(AlgorithmConfig):
                 continue
             if licznik==1:
                 element=linia[1:-2]
-                przedrostek=element
+                #przedrostek=element
                 licznik+=1
                 continue
             var=self.tablicaZLini(linia)
@@ -50,7 +50,7 @@ class AlgorithmXML(AlgorithmConfig):
                 if(var2[0]==("/"+element)):
                     nr_lini+=1
                 if(var[0]==element):
-                    przedrostek=element
+                    #przedrostek=element
                     continue
                 if(var[0] in koncowy_element):
                     dl=len(var[0])
@@ -58,10 +58,16 @@ class AlgorithmXML(AlgorithmConfig):
                     koncowy_element.remove(var[0])
                     continue
                 koncowy_element.append(var[0])
-                przedrostek+=self.configSeparatorKolumn+var[0]
+                if(przedrostek==''):
+                    przedrostek+=var[0]
+                else:
+                    przedrostek+=self.configSeparatorKolumn+var[0]
             if(len(var)==4):
                 dl=len(var[0])
-                przedrostek+=self.configSeparatorKolumn+var[0]
+                if(przedrostek==''):
+                    przedrostek+=var[0]
+                else:
+                    przedrostek+=self.configSeparatorKolumn+var[0]
                 if przedrostek not in naglowki:
                     naglowki.append(przedrostek)
                 przedrostek=przedrostek[:-dl-1]
@@ -71,9 +77,11 @@ class AlgorithmXML(AlgorithmConfig):
 
     def convertXML2CSV(self,filenameXML,fileNameCSV,separator):
         koncowy_element,naglowki,nr_lini=self.wyznaczNaglowki(filenameXML)
+        print(naglowki)
         lista = [[self.configJesli_brak for i in range(len(naglowki))]for j in range(nr_lini)]
         licznik=0
         nr_lini=0
+        przedrostek=''
         f = open(filenameXML, "r")
         for linia in f:
             linia = re.sub(r"[\t]*", "", linia)#usuwamy tabulatory z pliku xml
@@ -82,7 +90,7 @@ class AlgorithmXML(AlgorithmConfig):
                 continue
             if licznik==1:
                 element=linia[1:-2]
-                przedrostek=element
+                #przedrostek=element
                 licznik+=1
                 continue
             var=self.tablicaZLini(linia)
@@ -91,7 +99,7 @@ class AlgorithmXML(AlgorithmConfig):
                 if(var2[0]==("/"+element)):
                     nr_lini+=1
                 if(var[0]==element):
-                    przedrostek=element
+                    #przedrostek=element
                     continue
                 if(var[0] in koncowy_element):
                     dl=len(var[0])
@@ -99,11 +107,17 @@ class AlgorithmXML(AlgorithmConfig):
                     koncowy_element.remove(var[0])
                     continue
                 koncowy_element.append(var[0])
-                przedrostek+=self.configSeparatorKolumn+var[0]
+                if(przedrostek==''):
+                    przedrostek+=var[0]
+                else:
+                    przedrostek+=self.configSeparatorKolumn+var[0]
             if(len(var)==4):
                 dl=len(var[0])
                 obiket=var[2]
-                przedrostek+=self.configSeparatorKolumn+var[0]
+                if(przedrostek==''):
+                    przedrostek+=var[0]
+                else:
+                    przedrostek+=self.configSeparatorKolumn+var[0]
                 par2=naglowki.index(przedrostek)
                 lista[nr_lini][par2]=var[1]
                 przedrostek=przedrostek[:-dl-1]
@@ -111,3 +125,7 @@ class AlgorithmXML(AlgorithmConfig):
         f.close()
         naglowki=[naglowki]+lista
         self.table2File(naglowki,fileNameCSV,separator)
+
+
+o= AlgorithmXML()
+o.convertXML2CSV(r"C:\Users\micha\Desktop\aaa.xml",r"C:\Users\micha\Desktop\zam.csv",";")
