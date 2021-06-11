@@ -1,0 +1,117 @@
+\hypertarget{class_algorithm_x_m_l_1_1_algorithm_x_m_l}{}\doxysection{Algorithm\+XML.\+Algorithm\+XML Class Reference}
+\label{class_algorithm_x_m_l_1_1_algorithm_x_m_l}\index{AlgorithmXML.AlgorithmXML@{AlgorithmXML.AlgorithmXML}}
+
+
+Klasa, ktora obsluguje wszystkie konwersje, gdzie zródłowym plikiem jest plik o rozszerzeniu xml.  
+
+
+Inheritance diagram for Algorithm\+XML.\+Algorithm\+XML\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_algorithm_x_m_l_1_1_algorithm_x_m_l}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_algorithm_x_m_l_1_1_algorithm_x_m_l_abc7fd003a216d36fe68114dd1b0ed06b}\label{class_algorithm_x_m_l_1_1_algorithm_x_m_l_abc7fd003a216d36fe68114dd1b0ed06b}} 
+def \mbox{\hyperlink{class_algorithm_x_m_l_1_1_algorithm_x_m_l_abc7fd003a216d36fe68114dd1b0ed06b}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Konstruktor domyslny klasy \mbox{\hyperlink{class_algorithm_x_m_l_1_1_algorithm_x_m_l}{Algorithm\+XML}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_x_m_l_1_1_algorithm_x_m_l_a0d6a96aea0126bd93c6ca73ebfe4f61a}{table2\+File}} (self, tab, file\+\_\+destination, sep)
+\begin{DoxyCompactList}\small\item\em Metoda, która dwuwymiarową liste, zapisuje do pliku o rozszerzeniu csv, wykorzystujac sepaator kolumn z ostatniego parametru. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_x_m_l_1_1_algorithm_x_m_l_aadd8d45872ef157d639b6b3aad602154}{tablica\+ZLini}} (self, tekst, separatory=\textquotesingle{}$<$$\vert$$>$$\vert$/\textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Metoda, która zwraca liste, gdzie elementami listy są fragemnty tekstu, stworzone w wyniku podziału tekstu przez separatory. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_x_m_l_1_1_algorithm_x_m_l_a64bdd0c8c5d0f25ecb02e9a23ea18ab7}{wyznacz\+Naglowki}} (self, filename\+XML)
+\begin{DoxyCompactList}\small\item\em Metoda, która zwraca dwuelementową krotke. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_x_m_l_1_1_algorithm_x_m_l_a56da3ab6043a20922269aebc97c0d119}{convert\+XML2\+CSV}} (self, filename\+XML, file\+Name\+CSV, separator)
+\begin{DoxyCompactList}\small\item\em Metoda, która, konwertuje zawartość pliku XML i zapisuje skonwertowaną zawartość do pliku CSV. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Klasa, ktora obsluguje wszystkie konwersje, gdzie zródłowym plikiem jest plik o rozszerzeniu xml. 
+
+Zajmuje się, odczytniem, alogrytmem przekształcenia oraz zapisem do drugiego formatu. Klasa diedziczy po klasie Algorithm\+Config, aby mieć dostęp do globalnych zmiennych konfiguracyjnych 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_algorithm_x_m_l_1_1_algorithm_x_m_l_a56da3ab6043a20922269aebc97c0d119}\label{class_algorithm_x_m_l_1_1_algorithm_x_m_l_a56da3ab6043a20922269aebc97c0d119}} 
+\index{AlgorithmXML.AlgorithmXML@{AlgorithmXML.AlgorithmXML}!convertXML2CSV@{convertXML2CSV}}
+\index{convertXML2CSV@{convertXML2CSV}!AlgorithmXML.AlgorithmXML@{AlgorithmXML.AlgorithmXML}}
+\doxysubsubsection{\texorpdfstring{convertXML2CSV()}{convertXML2CSV()}}
+{\footnotesize\ttfamily def Algorithm\+XML.\+Algorithm\+XML.\+convert\+XML2\+CSV (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{filename\+XML,  }\item[{}]{file\+Name\+CSV,  }\item[{}]{separator }\end{DoxyParamCaption})}
+
+
+
+Metoda, która, konwertuje zawartość pliku XML i zapisuje skonwertowaną zawartość do pliku CSV. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename\+XML} & ścieżka do źródłowego pliku XML, który chcemy skonwertować \\
+\hline
+{\em file\+Name\+CSV} & ścieżka do docelowego pliku CSV, gdzie chcemy zapisać skonwertowaną zawartość pliku XML \\
+\hline
+{\em separator} & separator, który chcemy użyć w docelowym pliku CSV \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_algorithm_x_m_l_1_1_algorithm_x_m_l_a0d6a96aea0126bd93c6ca73ebfe4f61a}\label{class_algorithm_x_m_l_1_1_algorithm_x_m_l_a0d6a96aea0126bd93c6ca73ebfe4f61a}} 
+\index{AlgorithmXML.AlgorithmXML@{AlgorithmXML.AlgorithmXML}!table2File@{table2File}}
+\index{table2File@{table2File}!AlgorithmXML.AlgorithmXML@{AlgorithmXML.AlgorithmXML}}
+\doxysubsubsection{\texorpdfstring{table2File()}{table2File()}}
+{\footnotesize\ttfamily def Algorithm\+XML.\+Algorithm\+XML.\+table2\+File (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{tab,  }\item[{}]{file\+\_\+destination,  }\item[{}]{sep }\end{DoxyParamCaption})}
+
+
+
+Metoda, która dwuwymiarową liste, zapisuje do pliku o rozszerzeniu csv, wykorzystujac sepaator kolumn z ostatniego parametru. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tab} & dwuwymiarowa lista, którą chcemy zapsiać do pliku csv \\
+\hline
+{\em file\+\_\+destination} & ścieżka do pliku docelowego \\
+\hline
+{\em sep} & separator, który chcemy użyć przy pliku wynikowym csv \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_algorithm_x_m_l_1_1_algorithm_x_m_l_aadd8d45872ef157d639b6b3aad602154}\label{class_algorithm_x_m_l_1_1_algorithm_x_m_l_aadd8d45872ef157d639b6b3aad602154}} 
+\index{AlgorithmXML.AlgorithmXML@{AlgorithmXML.AlgorithmXML}!tablicaZLini@{tablicaZLini}}
+\index{tablicaZLini@{tablicaZLini}!AlgorithmXML.AlgorithmXML@{AlgorithmXML.AlgorithmXML}}
+\doxysubsubsection{\texorpdfstring{tablicaZLini()}{tablicaZLini()}}
+{\footnotesize\ttfamily def Algorithm\+XML.\+Algorithm\+XML.\+tablica\+ZLini (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{tekst,  }\item[{}]{separatory = {\ttfamily \textquotesingle{}$<$$\vert$$>$$\vert$/\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+
+Metoda, która zwraca liste, gdzie elementami listy są fragemnty tekstu, stworzone w wyniku podziału tekstu przez separatory. 
+
+Zwracana listwa nie zawiera elementów, które są równe \char`\"{}\char`\"{} czy też zawierają same tabulatory 
+\begin{DoxyParams}{Parameters}
+{\em tekst} & tekst, który chcemy podzielić \\
+\hline
+{\em separatory} & separatory, których chemy używać do podziału tekstu. Jeśli pominiemy ten parametr to tekst będzie podzielony wzgledem znaków $<$ $>$ oraz / \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+lista składająca się z elementów 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_algorithm_x_m_l_1_1_algorithm_x_m_l_a64bdd0c8c5d0f25ecb02e9a23ea18ab7}\label{class_algorithm_x_m_l_1_1_algorithm_x_m_l_a64bdd0c8c5d0f25ecb02e9a23ea18ab7}} 
+\index{AlgorithmXML.AlgorithmXML@{AlgorithmXML.AlgorithmXML}!wyznaczNaglowki@{wyznaczNaglowki}}
+\index{wyznaczNaglowki@{wyznaczNaglowki}!AlgorithmXML.AlgorithmXML@{AlgorithmXML.AlgorithmXML}}
+\doxysubsubsection{\texorpdfstring{wyznaczNaglowki()}{wyznaczNaglowki()}}
+{\footnotesize\ttfamily def Algorithm\+XML.\+Algorithm\+XML.\+wyznacz\+Naglowki (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{filename\+XML }\end{DoxyParamCaption})}
+
+
+
+Metoda, która zwraca dwuelementową krotke. 
+
+Pierwszym elementem krotki jest lista nagłówków stworzonych z pliku xml do zapisu w pliku csv(również tych zagnieżdzonych). Drugim elementem krotki jest liczba elementów w pliku xml 
+\begin{DoxyParams}{Parameters}
+{\em filename\+XML} & ścieżka do pliku XML, który chcemy analizować \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dwuelementowa krotka. Pierwszy element krotki to lista nagłówków a drugi element to liczba obiektów w pliku XML 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Algorithm\+XML.\+py\end{DoxyCompactItemize}

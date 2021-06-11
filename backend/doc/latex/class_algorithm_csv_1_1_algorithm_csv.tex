@@ -1,0 +1,244 @@
+\hypertarget{class_algorithm_csv_1_1_algorithm_csv}{}\doxysection{Algorithm\+Csv.\+Algorithm\+Csv Class Reference}
+\label{class_algorithm_csv_1_1_algorithm_csv}\index{AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}}
+
+
+Klasa, ktora obsluguje wszystkie konwersje, gdzie zródłowym plikiem jest plik o rozszerzeniu csv.  
+
+
+Inheritance diagram for Algorithm\+Csv.\+Algorithm\+Csv\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_algorithm_csv_1_1_algorithm_csv}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_algorithm_csv_1_1_algorithm_csv_a121ccad44bdab953bcf715a2f3af9c84}\label{class_algorithm_csv_1_1_algorithm_csv_a121ccad44bdab953bcf715a2f3af9c84}} 
+def \mbox{\hyperlink{class_algorithm_csv_1_1_algorithm_csv_a121ccad44bdab953bcf715a2f3af9c84}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Konstruktor domyslny klasy \mbox{\hyperlink{class_algorithm_csv_1_1_algorithm_csv}{Algorithm\+Csv}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_csv_1_1_algorithm_csv_a655cfa517fa043ea38cad651dd414bc3}{read\+Csv}} (self, path, delemiter)
+\begin{DoxyCompactList}\small\item\em Metoda wczytujaca plik csv do pola klasy. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_csv_1_1_algorithm_csv_abec023501bee749962bf0e792997577e}{One\+To\+Two\+Dim}} (self, tab)
+\begin{DoxyCompactList}\small\item\em Metoda konwertuje jednowymiarowa liste na dwuwymiarowa względem liczby kolumn. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_csv_1_1_algorithm_csv_aaafe566f5bd52907f282a396669daa93}{info\+Csv}} (self, tab)
+\begin{DoxyCompactList}\small\item\em Metoda wyswietla informacje o pliku csv, takie jak liczba kolumn, wierszy oraz nagłówki. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_csv_1_1_algorithm_csv_a46156f9f0fb66aefe338285b3faa82ba}{print\+Csv}} (self, tab)
+\begin{DoxyCompactList}\small\item\em Metoda wyswietla zawartosc odczytanego pliku csv. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_csv_1_1_algorithm_csv_a3ec1fe41455aa312032182d0b297997c}{diff\+Of\+List}} (self, list\+\_\+1, list\+\_\+2)
+\begin{DoxyCompactList}\small\item\em Metoda zwraca liste elementow z listy drugiej, ktore nie znajdują się w liście pierwszej. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_csv_1_1_algorithm_csv_a2225caac50d39b15ce5ccaba963dea4d}{do\+Ktorego\+Miejsca\+Zgodnosc}} (self, list\+\_\+1, list\+\_\+2)
+\begin{DoxyCompactList}\small\item\em Metoda liczbe, która mówi do którego indeksu dwie listy zawierały takie same elementy. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_csv_1_1_algorithm_csv_a8443646bab8d10b61bd2a226ab76e71e}{read\+CSVWith\+Dot}} (self, filename\+CSV, separator)
+\begin{DoxyCompactList}\small\item\em Metoda która, odczytuje pliku csv i zwraca liczbe wierszy, kolumn oraz nagłówki z pierwszego wiersza pliku csv. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_csv_1_1_algorithm_csv_a26c895e7503ba12ee9fbb87530523cd5}{convert\+CSV2\+XML}} (self, filename\+CSV, filename\+XML, separator)
+\begin{DoxyCompactList}\small\item\em Metoda która, konwertuje zawartość pliku CSV i zapisuje skonwertowaną zawartość do pliku XML. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_csv_1_1_algorithm_csv_aa2058d83e1789f690177878bd62fa09d}{dodaj\+Przecinki}} (self, filename\+JSON)
+\begin{DoxyCompactList}\small\item\em Metoda która dodaje przecinki w odpowiednim miejscu w pliku JOSN tak aby zachowac odpowiedni format. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_csv_1_1_algorithm_csv_a1fb027f332dbada7e163e9b62793f007}{convert\+CSV2\+JSON}} (self, filename\+CSV, filename\+JSON, separator)
+\begin{DoxyCompactList}\small\item\em Metoda która, konwertuje zawartość pliku CSV i zapisuje skonwertowaną zawartość do pliku JSON. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_algorithm_csv_1_1_algorithm_csv_a2396f22f797e490370b8cd0cb825fa10}\label{class_algorithm_csv_1_1_algorithm_csv_a2396f22f797e490370b8cd0cb825fa10}} 
+{\bfseries csv\+File}
+\item 
+\mbox{\Hypertarget{class_algorithm_csv_1_1_algorithm_csv_abf3a7510d305c7be1222b16f65be558c}\label{class_algorithm_csv_1_1_algorithm_csv_abf3a7510d305c7be1222b16f65be558c}} 
+{\bfseries column\+Number}
+\item 
+\mbox{\Hypertarget{class_algorithm_csv_1_1_algorithm_csv_a55a4e19bc4483e38e8e68c30598d6ff9}\label{class_algorithm_csv_1_1_algorithm_csv_a55a4e19bc4483e38e8e68c30598d6ff9}} 
+{\bfseries row\+Number}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Klasa, ktora obsluguje wszystkie konwersje, gdzie zródłowym plikiem jest plik o rozszerzeniu csv. 
+
+Zajmuje się, odczytniem, alogrytmem przekształcenia oraz zapisem do drugiego formatu. Klasa diedziczy po klasie Algorithm\+Config, aby mieć dostęp do globalnych zmiennych konfiguracyjnych 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_algorithm_csv_1_1_algorithm_csv_a1fb027f332dbada7e163e9b62793f007}\label{class_algorithm_csv_1_1_algorithm_csv_a1fb027f332dbada7e163e9b62793f007}} 
+\index{AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}!convertCSV2JSON@{convertCSV2JSON}}
+\index{convertCSV2JSON@{convertCSV2JSON}!AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}}
+\doxysubsubsection{\texorpdfstring{convertCSV2JSON()}{convertCSV2JSON()}}
+{\footnotesize\ttfamily def Algorithm\+Csv.\+Algorithm\+Csv.\+convert\+CSV2\+JSON (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{filename\+CSV,  }\item[{}]{filename\+JSON,  }\item[{}]{separator }\end{DoxyParamCaption})}
+
+
+
+Metoda która, konwertuje zawartość pliku CSV i zapisuje skonwertowaną zawartość do pliku JSON. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename\+CSV} & ścieżka do źródłowego pliku CSV, który chcemy skonwertować \\
+\hline
+{\em filename\+JSON} & ścieżka do docelowego pliku JSON, gdzie chcemy zapisać skonwertowaną zawartość pliku CSV \\
+\hline
+{\em separator} & który odziela kolumny w pliku csv, podanym jako parametr \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_algorithm_csv_1_1_algorithm_csv_a26c895e7503ba12ee9fbb87530523cd5}\label{class_algorithm_csv_1_1_algorithm_csv_a26c895e7503ba12ee9fbb87530523cd5}} 
+\index{AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}!convertCSV2XML@{convertCSV2XML}}
+\index{convertCSV2XML@{convertCSV2XML}!AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}}
+\doxysubsubsection{\texorpdfstring{convertCSV2XML()}{convertCSV2XML()}}
+{\footnotesize\ttfamily def Algorithm\+Csv.\+Algorithm\+Csv.\+convert\+CSV2\+XML (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{filename\+CSV,  }\item[{}]{filename\+XML,  }\item[{}]{separator }\end{DoxyParamCaption})}
+
+
+
+Metoda która, konwertuje zawartość pliku CSV i zapisuje skonwertowaną zawartość do pliku XML. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename\+CSV} & ścieżka do źródłowego pliku CSV, który chcemy skonwertować \\
+\hline
+{\em filename\+XML} & ścieżka do docelowego pliku XML, gdzie chcemy zapisać skonwertowaną zawartość pliku CSV \\
+\hline
+{\em separator} & który odziela kolumny w pliku csv, podanym jako parametr \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_algorithm_csv_1_1_algorithm_csv_a3ec1fe41455aa312032182d0b297997c}\label{class_algorithm_csv_1_1_algorithm_csv_a3ec1fe41455aa312032182d0b297997c}} 
+\index{AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}!diffOfList@{diffOfList}}
+\index{diffOfList@{diffOfList}!AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}}
+\doxysubsubsection{\texorpdfstring{diffOfList()}{diffOfList()}}
+{\footnotesize\ttfamily def Algorithm\+Csv.\+Algorithm\+Csv.\+diff\+Of\+List (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{list\+\_\+1,  }\item[{}]{list\+\_\+2 }\end{DoxyParamCaption})}
+
+
+
+Metoda zwraca liste elementow z listy drugiej, ktore nie znajdują się w liście pierwszej. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list\+\_\+1} & pierwsza lista \\
+\hline
+{\em list\+\_\+2} & druga lista \\
+\hline
+{\em lista} & zawierające elementy z drugiej listy, które nie występowały w liscie pierwszej \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_algorithm_csv_1_1_algorithm_csv_aa2058d83e1789f690177878bd62fa09d}\label{class_algorithm_csv_1_1_algorithm_csv_aa2058d83e1789f690177878bd62fa09d}} 
+\index{AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}!dodajPrzecinki@{dodajPrzecinki}}
+\index{dodajPrzecinki@{dodajPrzecinki}!AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}}
+\doxysubsubsection{\texorpdfstring{dodajPrzecinki()}{dodajPrzecinki()}}
+{\footnotesize\ttfamily def Algorithm\+Csv.\+Algorithm\+Csv.\+dodaj\+Przecinki (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{filename\+JSON }\end{DoxyParamCaption})}
+
+
+
+Metoda która dodaje przecinki w odpowiednim miejscu w pliku JOSN tak aby zachowac odpowiedni format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename\+JON} & ścieżka do źródłowego pliku JSON, w którym chcielibyśmy dodać przecinki \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_algorithm_csv_1_1_algorithm_csv_a2225caac50d39b15ce5ccaba963dea4d}\label{class_algorithm_csv_1_1_algorithm_csv_a2225caac50d39b15ce5ccaba963dea4d}} 
+\index{AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}!doKtoregoMiejscaZgodnosc@{doKtoregoMiejscaZgodnosc}}
+\index{doKtoregoMiejscaZgodnosc@{doKtoregoMiejscaZgodnosc}!AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}}
+\doxysubsubsection{\texorpdfstring{doKtoregoMiejscaZgodnosc()}{doKtoregoMiejscaZgodnosc()}}
+{\footnotesize\ttfamily def Algorithm\+Csv.\+Algorithm\+Csv.\+do\+Ktorego\+Miejsca\+Zgodnosc (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{list\+\_\+1,  }\item[{}]{list\+\_\+2 }\end{DoxyParamCaption})}
+
+
+
+Metoda liczbe, która mówi do którego indeksu dwie listy zawierały takie same elementy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list\+\_\+1} & pierwsza lista \\
+\hline
+{\em list\+\_\+2} & druga lista \\
+\hline
+{\em liczba,bedąca} & indeksem do którego obie listy były równe \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_algorithm_csv_1_1_algorithm_csv_aaafe566f5bd52907f282a396669daa93}\label{class_algorithm_csv_1_1_algorithm_csv_aaafe566f5bd52907f282a396669daa93}} 
+\index{AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}!infoCsv@{infoCsv}}
+\index{infoCsv@{infoCsv}!AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}}
+\doxysubsubsection{\texorpdfstring{infoCsv()}{infoCsv()}}
+{\footnotesize\ttfamily def Algorithm\+Csv.\+Algorithm\+Csv.\+info\+Csv (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{tab }\end{DoxyParamCaption})}
+
+
+
+Metoda wyswietla informacje o pliku csv, takie jak liczba kolumn, wierszy oraz nagłówki. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tab} & lista jednowymiarowa \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_algorithm_csv_1_1_algorithm_csv_abec023501bee749962bf0e792997577e}\label{class_algorithm_csv_1_1_algorithm_csv_abec023501bee749962bf0e792997577e}} 
+\index{AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}!OneToTwoDim@{OneToTwoDim}}
+\index{OneToTwoDim@{OneToTwoDim}!AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}}
+\doxysubsubsection{\texorpdfstring{OneToTwoDim()}{OneToTwoDim()}}
+{\footnotesize\ttfamily def Algorithm\+Csv.\+Algorithm\+Csv.\+One\+To\+Two\+Dim (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{tab }\end{DoxyParamCaption})}
+
+
+
+Metoda konwertuje jednowymiarowa liste na dwuwymiarowa względem liczby kolumn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tab} & lista jednowymiarowa \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+zwraca dwuwymiarowa lista stworzona na podstawie jednowymiarowej listy podanej jako parametr i liczba kolumn 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_algorithm_csv_1_1_algorithm_csv_a46156f9f0fb66aefe338285b3faa82ba}\label{class_algorithm_csv_1_1_algorithm_csv_a46156f9f0fb66aefe338285b3faa82ba}} 
+\index{AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}!printCsv@{printCsv}}
+\index{printCsv@{printCsv}!AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}}
+\doxysubsubsection{\texorpdfstring{printCsv()}{printCsv()}}
+{\footnotesize\ttfamily def Algorithm\+Csv.\+Algorithm\+Csv.\+print\+Csv (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{tab }\end{DoxyParamCaption})}
+
+
+
+Metoda wyswietla zawartosc odczytanego pliku csv. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tab} & lista jednowymiarowa \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_algorithm_csv_1_1_algorithm_csv_a655cfa517fa043ea38cad651dd414bc3}\label{class_algorithm_csv_1_1_algorithm_csv_a655cfa517fa043ea38cad651dd414bc3}} 
+\index{AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}!readCsv@{readCsv}}
+\index{readCsv@{readCsv}!AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}}
+\doxysubsubsection{\texorpdfstring{readCsv()}{readCsv()}}
+{\footnotesize\ttfamily def Algorithm\+Csv.\+Algorithm\+Csv.\+read\+Csv (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{path,  }\item[{}]{delemiter }\end{DoxyParamCaption})}
+
+
+
+Metoda wczytujaca plik csv do pola klasy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & sceizka do pliku csv, ktory ma byc odczytany \\
+\hline
+{\em delemiter} & separator w pliku csv \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+zwraca jednowymiarowa liste z odczytanego pliku csv 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_algorithm_csv_1_1_algorithm_csv_a8443646bab8d10b61bd2a226ab76e71e}\label{class_algorithm_csv_1_1_algorithm_csv_a8443646bab8d10b61bd2a226ab76e71e}} 
+\index{AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}!readCSVWithDot@{readCSVWithDot}}
+\index{readCSVWithDot@{readCSVWithDot}!AlgorithmCsv.AlgorithmCsv@{AlgorithmCsv.AlgorithmCsv}}
+\doxysubsubsection{\texorpdfstring{readCSVWithDot()}{readCSVWithDot()}}
+{\footnotesize\ttfamily def Algorithm\+Csv.\+Algorithm\+Csv.\+read\+CSVWith\+Dot (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{filename\+CSV,  }\item[{}]{separator }\end{DoxyParamCaption})}
+
+
+
+Metoda która, odczytuje pliku csv i zwraca liczbe wierszy, kolumn oraz nagłówki z pierwszego wiersza pliku csv. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename\+CSV} & ścieżka do pliku csv \\
+\hline
+{\em separator} & który odziela kolumny w pliku csv, podanym jako parametr \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+trzy elementowa krotka, gdzie pierwszy i drugi element to odpowiedni liczba wierszy oraz liczba kolumn. Trzeci element o lista zawierajaca nagłówki z pierwszego rekordu pliku csv 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Algorithm\+Csv.\+py\end{DoxyCompactItemize}

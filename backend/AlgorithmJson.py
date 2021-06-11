@@ -1,13 +1,16 @@
+from AlgorithmXML import AlgorithmXML
 from AlgorithmConfig import AlgorithmConfig
 import copy
 import json
-
+## Klasa, ktora obsluguje wszystkie konwersje, gdzie zródłowym plikiem jest plik o rozszerzeniu json. Zajmuje się, odczytniem, alogrytmem przekształcenia oraz zapisem do drugiego formatu. Klasa diedziczy po klasie AlgorithmConfig, aby mieć dostęp do globalnych zmiennych konfiguracyjnych
 class AlgorithmJson(AlgorithmConfig):     
-    ## Konstruktor
+    ## Konstruktor domyslny klasy AlgorithmJson
     def __init__(self):
         pass
 
-        #do usuniecia, jest to zwykla zamiana csv na json
+    ## Metoda, która dwuwymiarową liste, zapisuje do pliku o rozszerzeniu json. Ta metoda NIE obsługuje zagniezdzonych obiektow json
+    ## @param tab dwuwymiarowa lista, którą chcemy zapsiać do pliku json
+    ## @param file_destination ścieżka do pliku docelowego o rozszerzeniu json
     def fromCsv2Json(self,listaDwuwymiarowa,fileName):
         rowNumber=len(listaDwuwymiarowa)
         columnNumber=len(listaDwuwymiarowa[0])
@@ -32,6 +35,11 @@ class AlgorithmJson(AlgorithmConfig):
         f.write("]\n")
         f.close()
 
+    ## Metoda, która plik json w postacji listy slownika konwertuje również na liste słowników ale rozgniezdzajac wartosci slownika, które również są słownikami  
+    ## @param ds lista slownikow z pliku json, gdzie zagniezdzone wartosci sa kolejnymi slownikami, (slownik w slowniku)
+    ## @param prefix prexix klucza slownika
+    ## @param poziom poziom zagniezdzenia
+    ## @return lista slownikow, gdzie zarówno klucz oraz wartość, zawsze są tekstem
     def rozgniezdzenie(self,ds,prefix= "",poziom= 0):
         flaga = False#flaga czy jestesmy w rekurencji
         if isinstance(ds, dict):#jesli ds jest słownikiem
@@ -61,12 +69,18 @@ class AlgorithmJson(AlgorithmConfig):
             return new_ds[0] #rekurencja , wróc do wywołania czyli do update
         return new_ds
 
-    def loading_file(self,file_path):
+    ## Metoda, która ładuje pliki json do słownika, gdzie zagniezdozne obiekty są kolejnymi słownikami 
+    ## @param filenameJSON sciezka do pliku json
+    ## @return slownik powstały z pliku json, gdzie zagniezdozne obiekty są kolejnymi słownikami
+    def loading_file(self,filenameJSON):
         #załadowanie pliku do json_data
-        json_data = open(file_path)
+        json_data = open(filenameJSON)
         data = json.load(json_data)
         return data
 
+    ## Metoda, która z rozgniezdzonego slownika tworzy dwuwymiarowa listę
+    ## @param lista_slownikow lista, które przechowuje slowniki, gdzie kazdy słownik przehowuje informacje o jednym obiekcie(pliku json)/wierszu(tabeli)
+    ## @return dwuwymiarowa tablica powstała z listy słowników
     def dict2Table(self,lista_slownikow):
         klucze=[]
         for i in range(len(lista_slownikow)):
@@ -82,6 +96,10 @@ class AlgorithmJson(AlgorithmConfig):
                     tablica[i+1][j]=lista_slownikow[i][tablica[0][j]]
         return tablica
 
+    ## Metoda, która dwuwymiarową liste, zapisuje do pliku o rozszerzeniu csv, wykorzystujac sepaator kolumn z ostatniego parametru
+    ## @param tab dwuwymiarowa lista, którą chcemy zapsiać do pliku csv
+    ## @param file_destination ścieżka do pliku docelowego
+    ## @param sep separator, który chcemy użyć przy pliku wynikowym csv
     def table2File(sefl,tab,file_destination,sep):
         f = open(file_destination, "w")
         for i in range(len(tab)):
@@ -91,9 +109,16 @@ class AlgorithmJson(AlgorithmConfig):
                     f.write(sep)
             f.write('\n')
 
+    ## Metoda, która, konwertuje zawartość pliku JSON i zapisuje skonwertowaną zawartość do pliku CSV
+    ## @param filenameJSON ścieżka do źródłowego pliku JSON, który chcemy skonwertować
+    ## @param fileNameCSV ścieżka do docelowego pliku CSV, gdzie chcemy zapisać skonwertowaną zawartość pliku JSON
+    ## @param separator separator, który chcemy użyć w docelowym pliku CSV
     def convertJSON2CSV(self,filenameJSON,fileNameCSV,separator):
         slownik=self.loading_file(filenameJSON)
+        print(slownik)
         lista_slownikow=self.rozgniezdzenie(slownik)
+        print(lista_slownikow)
         tablica=self.dict2Table(lista_slownikow)
         self.table2File(tablica,fileNameCSV,separator)
-    
+# o=AlgorithmJson()
+# o.convertJSON2CSV(r"C:\Users\micha\Desktop\przykładowe pliki\przykladowy_plik_xml.json",r"C:\Users\micha\Desktop\przykładowe pliki\przykladowy_plik_xml.csv","|")

@@ -1,16 +1,15 @@
 from AlgorithmConfig import AlgorithmConfig
 import re
 import os
-
+## Klasa, ktora obsluguje wszystkie konwersje, gdzie zródłowym plikiem jest plik o rozszerzeniu csv. Zajmuje się, odczytniem, alogrytmem przekształcenia oraz zapisem do drugiego formatu. Klasa diedziczy po klasie AlgorithmConfig, aby mieć dostęp do globalnych zmiennych konfiguracyjnych
 class AlgorithmCsv(AlgorithmConfig):     
-    ## Konstruktor
+    ## Konstruktor domyslny klasy AlgorithmCsv
     def __init__(self):
         self.csvFile=None
         self.columnNumber=0
         self.rowNumber=0
   
-
-    ## Funckja wczytujaca plik csv do pola klasy
+    ## Metoda wczytujaca plik csv do pola klasy
     ## @param path sceizka do pliku csv, ktory ma byc odczytany
     ## @param delemiter separator w pliku csv
     ## @return zwraca jednowymiarowa liste z odczytanego pliku csv
@@ -34,7 +33,7 @@ class AlgorithmCsv(AlgorithmConfig):
             self.columnNumber=len(rowTmp)
         return tab
 
-    ## Funckja konwertuje jednowymiarowa liste na dwuwymiarowa zwgledem liczby kolumn
+    ## Metoda konwertuje jednowymiarowa liste na dwuwymiarowa względem liczby kolumn
     ## @param tab lista jednowymiarowa 
     ## @return zwraca dwuwymiarowa lista stworzona na podstawie jednowymiarowej listy podanej jako parametr i liczba kolumn
     def OneToTwoDim(self,tab):
@@ -43,7 +42,7 @@ class AlgorithmCsv(AlgorithmConfig):
         # zwracana składa dwuwymiarowa lista
         return [tab[i:i+n] for i in range(0, len(tab), n)]
     
-    ## Funckja wyswietla informacje o pliku csv, takie jak liczba kolumn, wierszy oraz nagłówki
+    ## Metoda wyswietla informacje o pliku csv, takie jak liczba kolumn, wierszy oraz nagłówki
     ## @param tab lista jednowymiarowa 
     def infoCsv(self,tab):
         print("Nagłówki kolumn:")
@@ -52,7 +51,7 @@ class AlgorithmCsv(AlgorithmConfig):
         print("Liczba kolumn: ",self.columnNumber)
         print("Liczba wierszy: ",self.rowNumber-1)
 
-    ## Funckja wyswietla zawartosc odczytanego pliku csv
+    ## Metoda wyswietla zawartosc odczytanego pliku csv
     ## @param tab lista jednowymiarowa 
     def printCsv(self,tab):
         for row in tab:
@@ -60,21 +59,20 @@ class AlgorithmCsv(AlgorithmConfig):
                 print(" {:16s}" .format(cell),end="")
             print()
 
-
-    # def tablicaZLini(self,tekst,separator='.'):
-    #     tekst=re.split(separator, tekst)
-    #     bez_spacji = []
-    #     for string in tekst:
-    #         if (string != "" and string!='\t'):
-    #             bez_spacji.append(string)
-    #     return bez_spacji
-
+    ## Metoda zwraca liste elementow z listy drugiej, ktore nie znajdują się w liście pierwszej
+    ## @param list_1 pierwsza lista
+    ## @param list_2 druga lista
+    ## @param lista zawierające elementy z drugiej listy, które nie występowały w liscie pierwszej
     def diffOfList(self,list_1,list_2):
         for self.elementDoXML in list_1:
             if self.elementDoXML in list_2:
                 list_2.remove(self.elementDoXML)
         return list_2
 
+    ## Metoda liczbe, która mówi do którego indeksu dwie listy zawierały takie same elementy
+    ## @param list_1 pierwsza lista
+    ## @param list_2 druga lista
+    ## @param liczba, bedąca indeksem do którego obie listy były równe
     def doKtoregoMiejscaZgodnosc(self,list_1,list_2):
         i=0
         while(True):
@@ -86,6 +84,10 @@ class AlgorithmCsv(AlgorithmConfig):
                 break
         return i
 
+    ## Metoda która, odczytuje pliku csv i zwraca liczbe wierszy, kolumn oraz nagłówki z pierwszego wiersza pliku csv
+    ## @param filenameCSV ścieżka do pliku csv
+    ## @param separator który odziela kolumny w pliku csv, podanym jako parametr
+    ## @return trzy elementowa krotka, gdzie pierwszy i drugi element to odpowiedni liczba wierszy oraz liczba kolumn. Trzeci element o lista zawierajaca nagłówki z pierwszego rekordu pliku csv
     def readCSVWithDot(self,filenameCSV,separator):
         f = open(filenameCSV, "r")
         #element=''
@@ -102,7 +104,10 @@ class AlgorithmCsv(AlgorithmConfig):
 
 
 
-
+    ## Metoda która, konwertuje zawartość pliku CSV i zapisuje skonwertowaną zawartość do pliku XML
+    ## @param filenameCSV ścieżka do źródłowego pliku CSV, który chcemy skonwertować
+    ## @param filenameXML ścieżka do docelowego pliku XML, gdzie chcemy zapisać skonwertowaną zawartość pliku CSV
+    ## @param separator który odziela kolumny w pliku csv, podanym jako parametr
     def convertCSV2XML(self,filenameCSV,filenameXML,separator):
         element="obiekt"
         liczba_wierszy,liczba_kolumn,naglowki = self.readCSVWithDot(filenameCSV,separator)
@@ -178,16 +183,13 @@ class AlgorithmCsv(AlgorithmConfig):
         print("</root>\n")
         fxml.close()
 
+    ## Metoda która dodaje przecinki w odpowiednim miejscu w pliku JOSN tak aby zachowac odpowiedni format
+    ## @param filenameJON ścieżka do źródłowego pliku JSON, w którym chcielibyśmy dodać przecinki
     def dodajPrzecinki(self,filenameJSON):
         lista=[]
 
         splicedFileName = filenameJSON.split(".")[0]
-
-
-
-        #fjson=open("przecinek"+filenameJSON,"r")
         fjson=open(splicedFileName+"tymczasowy.json","r")
-
         lista=[]
         for linia in fjson:
             lista.append(linia.count("\t"))
@@ -210,7 +212,10 @@ class AlgorithmCsv(AlgorithmConfig):
         os.remove(splicedFileName+"tymczasowy.json")
 
 
-
+    ## Metoda która, konwertuje zawartość pliku CSV i zapisuje skonwertowaną zawartość do pliku JSON
+    ## @param filenameCSV ścieżka do źródłowego pliku CSV, który chcemy skonwertować
+    ## @param filenameJSON ścieżka do docelowego pliku JSON, gdzie chcemy zapisać skonwertowaną zawartość pliku CSV
+    ## @param separator który odziela kolumny w pliku csv, podanym jako parametr
     def convertCSV2JSON(self,filenameCSV,filenameJSON,separator):
         #element, liczba_wierszy,liczba_kolumn,naglowki = self.readCSVWithDot(filenameCSV,separator)
         liczba_wierszy,liczba_kolumn,naglowki = self.readCSVWithDot(filenameCSV,separator)
@@ -279,6 +284,5 @@ class AlgorithmCsv(AlgorithmConfig):
         fjson.close()
         self.dodajPrzecinki(filenameJSON)
 
-
-o=AlgorithmCsv()
-o.convertCSV2XML(r"C:\Users\micha\Desktop\zam.csv",r"C:\Users\micha\Desktop\abcd.xml",";")
+# o=AlgorithmCsv()
+# o.convertCSV2JSON(r"C:\Users\micha\Desktop\przykładowe pliki\przykladowy_plik_xml.csv",r"C:\Users\micha\Desktop\przykładowe pliki\przykladowy_plik_xml.json",";")

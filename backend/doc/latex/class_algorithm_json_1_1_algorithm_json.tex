@@ -1,0 +1,160 @@
+\hypertarget{class_algorithm_json_1_1_algorithm_json}{}\doxysection{Algorithm\+Json.\+Algorithm\+Json Class Reference}
+\label{class_algorithm_json_1_1_algorithm_json}\index{AlgorithmJson.AlgorithmJson@{AlgorithmJson.AlgorithmJson}}
+
+
+Klasa, ktora obsluguje wszystkie konwersje, gdzie zródłowym plikiem jest plik o rozszerzeniu json.  
+
+
+Inheritance diagram for Algorithm\+Json.\+Algorithm\+Json\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_algorithm_json_1_1_algorithm_json}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_algorithm_json_1_1_algorithm_json_ac75fef669a4800169bdf11c166c42f96}\label{class_algorithm_json_1_1_algorithm_json_ac75fef669a4800169bdf11c166c42f96}} 
+def \mbox{\hyperlink{class_algorithm_json_1_1_algorithm_json_ac75fef669a4800169bdf11c166c42f96}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Konstruktor domyslny klasy \mbox{\hyperlink{class_algorithm_json_1_1_algorithm_json}{Algorithm\+Json}}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_json_1_1_algorithm_json_a07ef3c13ed68d06ca82406c9b6bc8f83}{from\+Csv2\+Json}} (self, lista\+Dwuwymiarowa, file\+Name)
+\begin{DoxyCompactList}\small\item\em Metoda, która dwuwymiarową liste, zapisuje do pliku o rozszerzeniu json. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_json_1_1_algorithm_json_a3d6d200f830a548f8b29082dd123402c}{rozgniezdzenie}} (self, ds, prefix=\char`\"{}\char`\"{}, poziom=0)
+\begin{DoxyCompactList}\small\item\em Metoda, która plik json w postacji listy slownika konwertuje również na liste słowników ale rozgniezdzajac wartosci slownika, które również są słownikami ~\newline
+ \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_json_1_1_algorithm_json_a83602719cd28246f747b35d61d3a2a96}{loading\+\_\+file}} (self, filename\+JSON)
+\begin{DoxyCompactList}\small\item\em Metoda, która ładuje pliki json do słownika, gdzie zagniezdozne obiekty są kolejnymi słownikami. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_json_1_1_algorithm_json_aefb9fd3232fd9d9397b0f0686d6c2ce9}{dict2\+Table}} (self, lista\+\_\+slownikow)
+\begin{DoxyCompactList}\small\item\em Metoda, która z rozgniezdzonego slownika tworzy dwuwymiarowa listę \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_json_1_1_algorithm_json_ae53905aa36d7c2f0fc23ca76201f3bf1}{table2\+File}} (sefl, tab, file\+\_\+destination, sep)
+\begin{DoxyCompactList}\small\item\em Metoda, która dwuwymiarową liste, zapisuje do pliku o rozszerzeniu csv, wykorzystujac sepaator kolumn z ostatniego parametru. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_algorithm_json_1_1_algorithm_json_a16b2b61f3cb1bbeb4c22e261ee27cb54}{convert\+JSON2\+CSV}} (self, filename\+JSON, file\+Name\+CSV, separator)
+\begin{DoxyCompactList}\small\item\em Metoda, która, konwertuje zawartość pliku JSON i zapisuje skonwertowaną zawartość do pliku CSV. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Klasa, ktora obsluguje wszystkie konwersje, gdzie zródłowym plikiem jest plik o rozszerzeniu json. 
+
+Zajmuje się, odczytniem, alogrytmem przekształcenia oraz zapisem do drugiego formatu. Klasa diedziczy po klasie Algorithm\+Config, aby mieć dostęp do globalnych zmiennych konfiguracyjnych 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_algorithm_json_1_1_algorithm_json_a16b2b61f3cb1bbeb4c22e261ee27cb54}\label{class_algorithm_json_1_1_algorithm_json_a16b2b61f3cb1bbeb4c22e261ee27cb54}} 
+\index{AlgorithmJson.AlgorithmJson@{AlgorithmJson.AlgorithmJson}!convertJSON2CSV@{convertJSON2CSV}}
+\index{convertJSON2CSV@{convertJSON2CSV}!AlgorithmJson.AlgorithmJson@{AlgorithmJson.AlgorithmJson}}
+\doxysubsubsection{\texorpdfstring{convertJSON2CSV()}{convertJSON2CSV()}}
+{\footnotesize\ttfamily def Algorithm\+Json.\+Algorithm\+Json.\+convert\+JSON2\+CSV (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{filename\+JSON,  }\item[{}]{file\+Name\+CSV,  }\item[{}]{separator }\end{DoxyParamCaption})}
+
+
+
+Metoda, która, konwertuje zawartość pliku JSON i zapisuje skonwertowaną zawartość do pliku CSV. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename\+JSON} & ścieżka do źródłowego pliku JSON, który chcemy skonwertować \\
+\hline
+{\em file\+Name\+CSV} & ścieżka do docelowego pliku CSV, gdzie chcemy zapisać skonwertowaną zawartość pliku JSON \\
+\hline
+{\em separator} & separator, który chcemy użyć w docelowym pliku CSV \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_algorithm_json_1_1_algorithm_json_aefb9fd3232fd9d9397b0f0686d6c2ce9}\label{class_algorithm_json_1_1_algorithm_json_aefb9fd3232fd9d9397b0f0686d6c2ce9}} 
+\index{AlgorithmJson.AlgorithmJson@{AlgorithmJson.AlgorithmJson}!dict2Table@{dict2Table}}
+\index{dict2Table@{dict2Table}!AlgorithmJson.AlgorithmJson@{AlgorithmJson.AlgorithmJson}}
+\doxysubsubsection{\texorpdfstring{dict2Table()}{dict2Table()}}
+{\footnotesize\ttfamily def Algorithm\+Json.\+Algorithm\+Json.\+dict2\+Table (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{lista\+\_\+slownikow }\end{DoxyParamCaption})}
+
+
+
+Metoda, która z rozgniezdzonego slownika tworzy dwuwymiarowa listę 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+slownikow} & lista, które przechowuje slowniki, gdzie kazdy słownik przehowuje informacje o jednym obiekcie(pliku json)/wierszu(tabeli) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dwuwymiarowa tablica powstała z listy słowników 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_algorithm_json_1_1_algorithm_json_a07ef3c13ed68d06ca82406c9b6bc8f83}\label{class_algorithm_json_1_1_algorithm_json_a07ef3c13ed68d06ca82406c9b6bc8f83}} 
+\index{AlgorithmJson.AlgorithmJson@{AlgorithmJson.AlgorithmJson}!fromCsv2Json@{fromCsv2Json}}
+\index{fromCsv2Json@{fromCsv2Json}!AlgorithmJson.AlgorithmJson@{AlgorithmJson.AlgorithmJson}}
+\doxysubsubsection{\texorpdfstring{fromCsv2Json()}{fromCsv2Json()}}
+{\footnotesize\ttfamily def Algorithm\+Json.\+Algorithm\+Json.\+from\+Csv2\+Json (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{lista\+Dwuwymiarowa,  }\item[{}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Metoda, która dwuwymiarową liste, zapisuje do pliku o rozszerzeniu json. 
+
+Ta metoda NIE obsługuje zagniezdzonych obiektow json 
+\begin{DoxyParams}{Parameters}
+{\em tab} & dwuwymiarowa lista, którą chcemy zapsiać do pliku json \\
+\hline
+{\em file\+\_\+destination} & ścieżka do pliku docelowego o rozszerzeniu json \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_algorithm_json_1_1_algorithm_json_a83602719cd28246f747b35d61d3a2a96}\label{class_algorithm_json_1_1_algorithm_json_a83602719cd28246f747b35d61d3a2a96}} 
+\index{AlgorithmJson.AlgorithmJson@{AlgorithmJson.AlgorithmJson}!loading\_file@{loading\_file}}
+\index{loading\_file@{loading\_file}!AlgorithmJson.AlgorithmJson@{AlgorithmJson.AlgorithmJson}}
+\doxysubsubsection{\texorpdfstring{loading\_file()}{loading\_file()}}
+{\footnotesize\ttfamily def Algorithm\+Json.\+Algorithm\+Json.\+loading\+\_\+file (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{filename\+JSON }\end{DoxyParamCaption})}
+
+
+
+Metoda, która ładuje pliki json do słownika, gdzie zagniezdozne obiekty są kolejnymi słownikami. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename\+JSON} & sciezka do pliku json \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+slownik powstały z pliku json, gdzie zagniezdozne obiekty są kolejnymi słownikami 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_algorithm_json_1_1_algorithm_json_a3d6d200f830a548f8b29082dd123402c}\label{class_algorithm_json_1_1_algorithm_json_a3d6d200f830a548f8b29082dd123402c}} 
+\index{AlgorithmJson.AlgorithmJson@{AlgorithmJson.AlgorithmJson}!rozgniezdzenie@{rozgniezdzenie}}
+\index{rozgniezdzenie@{rozgniezdzenie}!AlgorithmJson.AlgorithmJson@{AlgorithmJson.AlgorithmJson}}
+\doxysubsubsection{\texorpdfstring{rozgniezdzenie()}{rozgniezdzenie()}}
+{\footnotesize\ttfamily def Algorithm\+Json.\+Algorithm\+Json.\+rozgniezdzenie (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{ds,  }\item[{}]{prefix = {\ttfamily \char`\"{}\char`\"{}},  }\item[{}]{poziom = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Metoda, która plik json w postacji listy slownika konwertuje również na liste słowników ale rozgniezdzajac wartosci slownika, które również są słownikami ~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ds} & lista slownikow z pliku json, gdzie zagniezdzone wartosci sa kolejnymi slownikami, (slownik w slowniku) \\
+\hline
+{\em prefix} & prexix klucza slownika \\
+\hline
+{\em poziom} & poziom zagniezdzenia \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+lista slownikow, gdzie zarówno klucz oraz wartość, zawsze są tekstem 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_algorithm_json_1_1_algorithm_json_ae53905aa36d7c2f0fc23ca76201f3bf1}\label{class_algorithm_json_1_1_algorithm_json_ae53905aa36d7c2f0fc23ca76201f3bf1}} 
+\index{AlgorithmJson.AlgorithmJson@{AlgorithmJson.AlgorithmJson}!table2File@{table2File}}
+\index{table2File@{table2File}!AlgorithmJson.AlgorithmJson@{AlgorithmJson.AlgorithmJson}}
+\doxysubsubsection{\texorpdfstring{table2File()}{table2File()}}
+{\footnotesize\ttfamily def Algorithm\+Json.\+Algorithm\+Json.\+table2\+File (\begin{DoxyParamCaption}\item[{}]{sefl,  }\item[{}]{tab,  }\item[{}]{file\+\_\+destination,  }\item[{}]{sep }\end{DoxyParamCaption})}
+
+
+
+Metoda, która dwuwymiarową liste, zapisuje do pliku o rozszerzeniu csv, wykorzystujac sepaator kolumn z ostatniego parametru. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tab} & dwuwymiarowa lista, którą chcemy zapsiać do pliku csv \\
+\hline
+{\em file\+\_\+destination} & ścieżka do pliku docelowego \\
+\hline
+{\em sep} & separator, który chcemy użyć przy pliku wynikowym csv \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Algorithm\+Json.\+py\end{DoxyCompactItemize}
